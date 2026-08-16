@@ -1,5 +1,5 @@
 pandas
-google-generativeai
+google-genai
 tqdm
 tenacity
 fire 

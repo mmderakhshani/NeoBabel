@@ -1,0 +1,20 @@
+# Fast-inference environment (separate from the pinned training env in requirements.txt).
+# Needs torch >= 2.5 for FlexAttention (gemma-2 soft-capping + NeoBabel's custom
+# prefix-causal / image-bidirectional attention mask, which sdpa/flash-attn can't express).
+torch>=2.7,<2.8
+transformers>=4.53,<4.56
+diffusers==0.30.1
+safetensors
+huggingface_hub
+omegaconf==2.3.0
+einops
+jaxtyping
+typeguard==2.13.3
+pillow
+numpy
+tqdm
+wandb
+accelerate
+sentencepiece
+setuptools<81
+torchvision>=0.22,<0.23  # matches torch 2.7.x

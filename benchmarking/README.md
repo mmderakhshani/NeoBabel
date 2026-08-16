@@ -23,13 +23,13 @@
 Install the required packages:
 
 ```bash
-pip install pandas google-generativeai tqdm tenacity fire
+pip install pandas google-genai tqdm tenacity fire
 ```
 
 ## Usage
 
 ```bash
-python translate.py generate --input_csv path/to/file.csv
+python translate.py --input_csv path/to/file.csv
 ```
 
 ## Notes

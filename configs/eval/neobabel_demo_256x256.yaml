@@ -15,7 +15,7 @@ model:
     neobabel:
         checkpoint_path: "/users/derakhsh/project/NeoBabel/training-gemma-6-languages-stage2-lumi-bs-6x1152-iter-160000/checkpoint-160000"
         load_from_neobabel: False
-        pretrained_model_path: "google/gemma-2-2b-it"
+        pretrained_model_path: "google/gemma-2-2b-it" # TODO: update to the public NeoBabel HF repo once weights are published (currently private at Dheerraa/NeoBabel)
         llm_model_path: 'google/gemma-2-2b-it'
         vocab_size: 264203
         llm_vocab_size: 256000
@@ -35,7 +35,7 @@ dataset:
         resolution: 256
         pin_memory: True
         persistent_workers: True
-        validation_prompts_file: "validation_prompts/stage2_lumi.txt"
+        validation_prompts_file: "validation_prompts/neobablprompts.txt"
 
     preprocessing:
         max_seq_length: 512 # for text tokens

@@ -1,0 +1,1000 @@
+0: tanche
+1: poisson rouge
+2: grand requin blanc
+3: requin tigre
+4: requin marteau
+5: raie électrique
+6: raie pastenague
+7: coq
+8: poule
+9: autruche
+10: pinson du Nord
+11: chardonneret élégant
+12: pinson des maisons
+13: junco
+14: passerin indigo
+15: rouge-gorge
+16: bulbul
+17: geai
+18: pie
+19: mésange
+20: cincle plongeur
+21: milan
+22: pygargue à tête blanche
+23: vautour
+24: chouette lapone
+25: salamandre tachetée européenne
+26: triton commun
+27: larve de triton
+28: salamandre maculée
+29: axolotl
+30: grenouille taureau
+31: grenouille arboricole
+32: grenouille à queue
+33: caouanne
+34: tortue luth
+35: tortue de boue
+36: tortue palustre
+37: tortue boîte
+38: gecko à bandes
+39: iguane commun
+40: caméléon américain
+41: queue de fouet
+42: agama
+43: lézard à collerette
+44: lézard alligator
+45: monstre de Gila
+46: lézard vert
+47: caméléon africain
+48: dragon de Komodo
+49: crocodile africain
+50: alligator américain
+51: tricératops
+52: couleuvre verte
+53: serpent à collier
+54: serpent à nez retroussé
+55: serpent vert
+56: serpent roi
+57: serpent jarretière
+58: serpent d'eau
+59: serpent liane
+60: serpent nocturne
+61: boa constricteur
+62: python des rochers
+63: cobra indien
+64: mamba vert
+65: serpent de mer
+66: vipère cornue
+67: crotale diamantin
+68: crotale cornue
+69: trilobite
+70: faucheur
+71: scorpion
+72: épeire fasciée
+73: épeire des granges
+74: araignée de jardin
+75: veuve noire
+76: tarentule
+77: araignée-loup
+78: tique
+79: centipède
+80: tétras lyre
+81: lagopède
+82: gélinotte huppée
+83: poule des prairies
+84: paon
+85: caille
+86: perdrix
+87: perroquet gris d'Afrique
+88: ara
+89: cacatoès à huppe jaune
+90: loris
+91: coucals
+92: guêpier
+93: calao
+94: colibri
+95: jacamar
+96: toucan
+97: canard mâle
+98: harle huppé
+99: oie
+100: cygne noir
+101: éléphant (tusker)
+102: échidné
+103: ornithorynque
+104: wallaby
+105: koala
+106: wombat
+107: méduse
+108: anémone de mer
+109: corail cerveau
+110: vers plat
+111: nématode
+112: conque
+113: escargot
+114: limace
+115: limace de mer
+116: chiton
+117: nautile à chambre
+118: crabe de Dungeness
+119: crabe des rochers
+120: crabe violoniste
+121: crabe royal
+122: homard américain
+123: langouste
+124: écrevisse
+125: bernard-l’ermite
+126: isopode
+127: cigogne blanche
+128: cigogne noire
+129: spatule
+130: flamant rose
+131: aigrette bleue
+132: grande aigrette américaine
+133: butor
+134: grue
+135: limpkin
+136: poule d’eau européenne
+137: foulque américaine
+138: outarde
+139: tournepierre à collier
+140: bécasseau à dos roux
+141: chevalier gambette
+142: bécassin
+143: huîtrier
+144: pélican
+145: manchot royal
+146: albatros
+147: baleine grise
+148: orque
+149: dugong
+150: lion de mer
+151: chihuahua
+152: épagneul japonais
+153: chien maltais
+154: pékinois
+155: shih-tzu
+156: épagneul Blenheim
+157: papillon
+158: terrier nain
+159: ridgeback rhodésien
+160: lévrier afghan
+161: basset
+162: beagle
+163: limier
+164: bluetick
+165: coonhound noir et feu
+166: chien de chasse Walker
+167: foxhound anglais
+168: redbone
+169: borzoi
+170: lévrier irlandais
+171: lévrier italien
+172: whippet
+173: lévrier ibicenco
+174: chien d’élan norvégien
+175: chien de loutre
+176: saluki
+177: lévrier écossais
+178: braque de Weimar
+179: bull-terrier Staffordshire
+180: terrier américain Staffordshire
+181: terrier Bedlington
+182: terrier Border
+183: terrier Kerry blue
+184: terrier irlandais
+185: terrier Norfolk
+186: terrier Norwich
+187: terrier Yorkshire
+188: terrier fox à poil dur
+189: terrier Lakeland
+190: terrier Sealyham
+191: Airedale
+192: cairn
+193: terrier australien
+194: Dandie Dinmont
+195: boston terrier
+196: schnauzer nain
+197: schnauzer géant
+198: schnauzer standard
+199: terrier écossais
+200: terrier tibétain
+201: terrier soyeux
+202: terrier à poil doux
+203: terrier blanc du West Highland
+204: Lhassa
+205: retriever à poil plat
+206: retriever à poil bouclé
+207: golden retriever
+208: retriever du Labrador
+209: retriever de la baie de Chesapeake
+210: braque allemand à poil court
+211: braque hongrois
+212: setter anglais
+213: setter irlandais
+214: setter Gordon
+215: épagneul breton
+216: clumber
+217: springer anglais
+218: épagneul springer gallois
+219: cocker spaniel
+220: épagneul du Sussex
+221: épagneul d'eau irlandais
+222: kuvasz
+223: schipperke
+224: groenendael
+225: malinois
+226: briard
+227: kelpie
+228: komondor
+229: vieux chien de berger anglais
+230: berger des Shetland
+231: colley
+232: border collie
+233: bouvier des Flandres
+234: rottweiler
+235: berger allemand
+236: dobermann
+237: pinscher miniature
+238: grand bouvier suisse
+239: bouvier bernois
+240: appenzellois
+241: entlebucher
+242: boxer
+243: bullmastiff
+244: mastiff tibétain
+245: bouledogue français
+246: dogue allemand
+247: saint-bernard
+248: chien esquimau
+249: malamute
+250: husky de Sibérie
+251: dalmatien
+252: affenpinscher
+253: basenji
+254: carlin
+255: léonberg
+256: terre-neuve
+257: montagne des Pyrénées
+258: samoyède
+259: spitz poméranien
+260: chow-chow
+261: keeshond
+262: griffon brabançon
+263: pembroke
+264: cardigan
+265: caniche toy
+266: caniche miniature
+267: caniche standard
+268: chien nu mexicain
+269: loup des bois
+270: loup blanc
+271: loup rouge
+272: coyote
+273: dingo
+274: dhole
+275: chien sauvage africain
+276: hyène
+277: renard roux
+278: renard nain
+279: renard arctique
+280: renard gris
+281: chat tigré
+282: chat tigré
+283: chat persan
+284: chat siamois
+285: chat égyptien
+286: couguar
+287: lynx
+288: léopard
+289: léopard des neiges
+290: jaguar
+291: lion
+292: tigre
+293: guépard
+294: ours brun
+295: ours noir américain
+296: ours polaire
+297: ours lippu
+298: mangouste
+299: suricate
+300: cicindèle
+301: coccinelle
+302: carabe
+303: longicorne
+304: chrysomèle
+305: bousier
+306: scarabée rhinocéros
+307: charançon
+308: mouche
+309: abeille
+310: fourmi
+311: sauterelle
+312: grillon
+313: phasme
+314: cafard
+315: mante
+316: cigale
+317: cicadelle
+318: chrysopidé
+319: libellule
+320: demoiselle
+321: vulcain
+322: tircis
+323: monarque
+324: piéride
+325: soufré
+326: lycénidé
+327: étoile de mer
+328: oursin
+329: concombre de mer
+330: lapin de garenne
+331: lièvre
+332: angora
+333: hamster
+334: porc-épic
+335: écureuil fauve
+336: marmotte
+337: castor
+338: cochon d'Inde
+339: alezan
+340: zèbre
+341: porc
+342: sanglier
+343: phacochère
+344: hippopotame
+345: bœuf
+346: buffle d'eau
+347: bison
+348: bélier
+349: mouflon
+350: bouquetin
+351: bubale
+352: impala
+353: gazelle
+354: chameau d'Arabie
+355: lama
+356: belette
+357: vison
+358: putois
+359: furet à pieds noirs
+360: loutre
+361: moufette
+362: blaireau
+363: tatou
+364: paresseux à trois doigts
+365: orang-outan
+366: gorille
+367: chimpanzé
+368: gibbon
+369: siamang
+370: guenon
+371: patas
+372: babouin
+373: macaque
+374: langur
+375: colobe
+376: nasique
+377: ouistiti
+378: capucin
+379: hurleur
+380: titi
+381: singe-araignée
+382: singe écureuil
+383: lémur catta
+384: indri
+385: éléphant d'Inde
+386: éléphant d'Afrique
+387: panda roux
+388: panda géant
+389: barracuda
+390: anguille
+391: coho
+392: poisson-ange
+393: poisson clown
+394: esturgeon
+395: lépisostéidé
+396: poisson-lion
+397: poisson-globe
+398: abaque
+399: abaya
+400: toge universitaire
+401: accordéon
+402: guitare acoustique
+403: porte-avions
+404: avion de ligne
+405: dirigeable
+406: autel
+407: ambulance
+408: amphibien
+409: horloge analogique
+410: rucher
+411: tablier
+412: poubelle
+413: fusil d'assaut
+414: sac à dos
+415: boulangerie
+416: poutre d'équilibre
+417: ballon
+418: stylo-bille
+419: pansement
+420: banjo
+421: rampe
+422: haltère
+423: fauteuil de barbier
+424: salon de coiffure
+425: grange
+426: baromètre
+427: baril
+428: brouette
+429: baseball
+430: basketball
+431: berceau
+432: basson
+433: bonnet de bain
+434: serviette de bain
+435: baignoire
+436: break de plage
+437: phare
+438: bécher
+439: bonnet à poils
+440: bouteille de bière
+441: verre de bière
+442: clocher-mur
+443: bavoir
+444: tandem
+445: bikini
+446: classeur
+447: jumelles
+448: nichoir
+449: hangar à bateaux
+450: bobsleigh
+451: cordon bolo
+452: bonnet
+453: bibliothèque
+454: librairie
+455: capsule
+456: arc
+457: nœud papillon
+458: cuivre
+459: soutien-gorge
+460: brise-lames
+461: cuirasse
+462: balai
+463: seau
+464: boucle
+465: gilet pare-balles
+466: train à grande vitesse
+467: boucherie
+468: taxi
+469: chaudron
+470: bougie
+471: canon
+472: canoë
+473: ouvre-boîte
+474: cardigan
+475: rétroviseur
+476: carrousel
+477: trousse de charpentier
+478: carton
+479: roue de voiture
+480: distributeur automatique
+481: cassette
+482: lecteur de cassettes
+483: château
+484: catamaran
+485: lecteur CD
+486: violoncelle
+487: téléphone portable
+488: chaîne
+489: clôture grillagée
+490: cotte de mailles
+491: tronçonneuse
+492: coffre
+493: chiffonnier
+494: carillon
+495: vaisselier
+496: chaussette de Noël
+497: église
+498: cinéma
+499: couperet
+500: habitation troglodyte
+501: cape
+502: sabot
+503: shaker à cocktail
+504: tasse à café
+505: cafetière
+506: bobine
+507: cadenas à combinaison
+508: clavier d'ordinateur
+509: confiserie
+510: porte-conteneurs
+511: décapotable
+512: tire-bouchon
+513: cornet
+514: botte de cow-boy
+515: chapeau de cow-boy
+516: berceau
+517: grue
+518: casque de protection
+519: caisse
+520: lit de bébé
+521: mijoteuse
+522: boule de croquet
+523: béquille
+524: cuirasse
+525: barrage
+526: bureau
+527: ordinateur de bureau
+528: téléphone à cadran
+529: couche
+530: horloge numérique
+531: montre numérique
+532: table à manger
+533: torchon
+534: lave-vaisselle
+535: frein à disque
+536: quai
+537: traîneau à chiens
+538: dôme
+539: paillasson
+540: plateforme de forage
+541: tambour
+542: baguette de batterie
+543: haltère
+544: four hollandais
+545: ventilateur électrique
+546: guitare électrique
+547: locomotive électrique
+548: centre de divertissement
+549: enveloppe
+550: machine à expresso
+551: poudre pour le visage
+552: boa en plumes
+553: lime
+554: bateau-pompe
+555: camion de pompiers
+556: écran de cheminée
+557: mât de drapeau
+558: flûte
+559: chaise pliante
+560: casque de football
+561: chariot élévateur
+562: fontaine
+563: stylo-plume
+564: lit à baldaquin
+565: wagon de marchandises
+566: cor français
+567: poêle
+568: manteau de fourrure
+569: camion à ordures
+570: masque à gaz
+571: pompe à essence
+572: gobelet
+573: karting
+574: balle de golf
+575: voiturette de golf
+576: gondole
+577: gong
+578: robe de soirée
+579: piano à queue
+580: serre
+581: grille
+582: épicerie
+583: guillotine
+584: barrette
+585: laque pour cheveux
+586: véhicule semi-chenillé
+587: marteau
+588: panier à linge
+589: sèche-mains
+590: ordinateur portable
+591: mouchoir
+592: disque dur
+593: harmonica
+594: harpe
+595: moissonneuse
+596: hachette
+597: étui
+598: home cinéma
+599: rayon de miel
+600: crochet
+601: crinoline
+602: barre horizontale
+603: charrette à cheval
+604: sablier
+605: iPod
+606: fer à repasser
+607: citrouille-lanterne
+608: jean
+609: jeep
+610: maillot
+611: puzzle
+612: pousse-pousse
+613: joystick
+614: kimono
+615: genouillère
+616: nœud
+617: blouse de laboratoire
+618: louche
+619: abat-jour
+620: ordinateur portable
+621: tondeuse à gazon
+622: bouchon d'objectif
+623: coupe-papier
+624: bibliothèque
+625: canot de sauvetage
+626: briquet
+627: limousine
+628: paquebot
+629: rouge à lèvres
+630: mocassin
+631: lotion
+632: haut-parleur
+633: loupe
+634: scierie
+635: boussole magnétique
+636: sac postal
+637: boîte aux lettres
+638: maillot (de bain)
+639: maillot (de bain)
+640: plaque d'égout
+641: maraca
+642: marimba
+643: masque
+644: allumette
+645: mât de mai
+646: labyrinthe
+647: verre doseur
+648: armoire à pharmacie
+649: mégalithe
+650: microphone
+651: micro-ondes
+652: uniforme militaire
+653: bidon de lait
+654: minibus
+655: minijupe
+656: minifourgonnette
+657: missile
+658: moufle
+659: bol à mélanger
+660: maison mobile
+661: Modèle T
+662: modem
+663: monastère
+664: moniteur
+665: mobylette
+666: mortier
+667: mortier à toque (chapeau de diplôme)
+668: mosquée
+669: moustiquaire
+670: scooter
+671: vélo de montagne
+672: tente de montagne
+673: souris
+674: piège à souris
+675: camion de déménagement
+676: muselière
+677: clou
+678: minerve
+679: collier
+680: tétine
+681: cahier
+682: obélisque
+683: hautbois
+684: ocarina
+685: odomètre
+686: filtre à huile
+687: orgue
+688: oscilloscope
+689: surjupe
+690: charrette à bœufs
+691: masque à oxygène
+692: paquet
+693: pagaie
+694: roue à aubes
+695: cadenas
+696: pinceau
+697: pyjama
+698: palais
+699: flûte de Pan
+700: essuie-tout
+701: parachute
+702: barres parallèles
+703: banc de parc
+704: parcmètre
+705: voiture de passagers
+706: patio
+707: téléphone public
+708: piédestal
+709: trousse à crayons
+710: taille-crayon
+711: parfum
+712: boîte de Petri
+713: photocopieuse
+714: pioche
+715: pickelhaube (casque à pointe prussien)
+716: clôture en piquets
+717: camionnette
+718: jetée
+719: tirelire
+720: flacon de pilules
+721: oreiller
+722: balle de ping-pong
+723: moulin à vent
+724: pirate
+725: pichet
+726: avion
+727: planétarium
+728: sac en plastique
+729: égouttoir à assiettes
+730: charrue
+731: ventouse
+732: appareil photo Polaroid
+733: poteau
+734: fourgon de police
+735: poncho
+736: table de billard
+737: bouteille de soda
+738: pot
+739: tour de potier
+740: perceuse électrique
+741: tapis de prière
+742: imprimante
+743: prison
+744: projectile
+745: projecteur
+746: palet
+747: sac de frappe
+748: sac à main
+749: plume
+750: courtepointe
+751: coureur
+752: raquette
+753: radiateur
+754: radio
+755: radiotélescope
+756: tonneau d'eau de pluie
+757: véhicule de loisirs
+758: bobine
+759: appareil photo réflex
+760: réfrigérateur
+761: télécommande
+762: restaurant
+763: revolver
+764: fusil
+765: chaise berçante
+766: rôtissoire
+767: gomme en caoutchouc
+768: ballon de rugby
+769: règle
+770: chaussure de course
+771: coffre-fort
+772: épingle de sûreté
+773: salière
+774: sandale
+775: sarong
+776: saxophone
+777: fourreau
+778: balance
+779: bus scolaire
+780: goélette
+781: tableau de score
+782: écran
+783: vis
+784: tournevis
+785: ceinture de sécurité
+786: machine à coudre
+787: bouclier
+788: magasin de chaussures
+789: shoji (porte coulissante japonaise)
+790: panier de courses
+791: chariot de courses
+792: pelle
+793: bonnet de douche
+794: rideau de douche
+795: ski
+796: cagoule de ski
+797: sac de couchage
+798: règle à calcul
+799: porte coulissante
+800: fente
+801: tuba
+802: motoneige
+803: chasse-neige
+804: distributeur de savon
+805: ballon de football
+806: chaussette
+807: parabole solaire
+808: sombrero
+809: bol à soupe
+810: barre d'espace
+811: radiateur d'appoint
+812: navette spatiale
+813: spatule
+814: hors-bord
+815: toile d'araignée
+816: fuseau
+817: voiture de sport
+818: projecteur
+819: scène
+820: locomotive à vapeur
+821: pont en arc d'acier
+822: tambour métallique
+823: stéthoscope
+824: étole
+825: mur de pierre
+826: chronomètre
+827: cuisinière
+828: passoire
+829: tramway
+830: brancard
+831: canapé-lit
+832: stupa
+833: sous-marin
+834: costume
+835: cadran solaire
+836: monocle solaire
+837: lunettes de soleil
+838: écran solaire
+839: pont suspendu
+840: écouvillon
+841: sweat-shirt
+842: maillot de bain
+843: balançoire
+844: interrupteur
+845: seringue
+846: lampe de table
+847: char d'assaut
+848: lecteur de cassettes
+849: théière
+850: doudou
+851: télévision
+852: balle de tennis
+853: chaume
+854: rideau de théâtre
+855: dé à coudre
+856: batteuse
+857: trône
+858: toit en tuiles
+859: grille-pain
+860: bureau de tabac
+861: siège de toilettes
+862: torche
+863: totem
+864: dépanneuse
+865: magasin de jouets
+866: tracteur
+867: camion-remorque
+868: plateau
+869: trench-coat
+870: tricycle
+871: trimaran
+872: trépied
+873: arc de triomphe
+874: trolleybus
+875: trombone
+876: baignoire
+877: tourniquet
+878: clavier de machine à écrire
+879: parapluie
+880: monocycle
+881: colonne (ou montant)
+882: aspirateur
+883: vase
+884: voûte
+885: velours
+886: distributeur automatique
+887: vêtement de cérémonie
+888: viaduc
+889: violon
+890: volleyball
+891: gaufrier
+892: horloge murale
+893: portefeuille
+894: armoire
+895: avion de guerre
+896: lavabo
+897: lave-linge
+898: bouteille d'eau
+899: cruche d'eau
+900: château d'eau
+901: cruche de whisky
+902: sifflet
+903: perruque
+904: moustiquaire
+905: store de fenêtre
+906: cravate Windsor
+907: bouteille de vin
+908: aile
+909: wok
+910: cuillère en bois
+911: laine
+912: clôture en zigzag
+913: épave
+914: yawl (petit voilier)
+915: yourte
+916: site web
+917: bande dessinée
+918: mots croisés
+919: panneau de rue
+920: feu de circulation
+921: jaquette de livre
+922: menu
+923: assiette
+924: guacamole
+925: consommé
+926: fondue chinoise
+927: bagatelle
+928: glace
+929: glace à l'eau
+930: pain français
+931: bagel
+932: bretzel
+933: cheeseburger
+934: hot-dog
+935: purée de pommes de terre
+936: chou pommé
+937: brocoli
+938: chou-fleur
+939: courgette
+940: courge spaghetti
+941: courge gland
+942: courge musquée
+943: concombre
+944: artichaut
+945: poivron
+946: cardon
+947: champignon
+948: Granny Smith
+949: fraise
+950: orange
+951: citron
+952: figue
+953: ananas
+954: banane
+955: jacquier
+956: pomme cannelle
+957: grenade
+958: foin
+959: carbonara
+960: sauce au chocolat
+961: pâte
+962: pain de viande
+963: pizza
+964: tourte
+965: burrito
+966: vin rouge
+967: expresso
+968: tasse
+969: lait de poule
+970: alp (montagne alpine)
+971: bulle
+972: falaise
+973: récif corallien
+974: geyser
+975: bord du lac
+976: promontoire
+977: banc de sable
+978: rivage
+979: vallée
+980: volcan
+981: joueur de baseball
+982: marié
+983: plongeur sous-marin
+984: colza
+985: marguerite
+986: sabot de Vénus jaune
+987: maïs
+988: gland
+989: cynorhodon
+990: marron d'Inde
+991: champignon corallien
+992: agaric
+993: gyromitre
+994: satyre puant
+995: géastre
+996: poule des bois
+997: bolet
+998: oreille
+999: papier toilette

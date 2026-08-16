@@ -21,7 +21,7 @@ pip install --upgrade setuptools
 
 mim install mmengine mmcv-full==1.7.2
 
-git clone https://github.com/open-mmlab/mmdetection.git
+git clone -b 2.x https://github.com/open-mmlab/mmdetection.git  # 2.x branch: evaluation code requires mmdet v2 API (matches mmcv-full 1.7.2)
 cd mmdetection
 pip install -v -e .
 ```

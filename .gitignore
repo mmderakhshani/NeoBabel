@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# SLURM / job logs (keep the dirs via .gitkeep)
+logs/*.log
+*_logs/*.out
+*_logs/*.err
+eval_logs/*.out
+eval_logs/*.err
+
+# wandb runs
+wandb/

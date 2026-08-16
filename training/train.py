@@ -285,25 +285,25 @@ def main():
             shuffle_buffer_size=dataset_config.shuffle_buffer_size,
             pin_memory=dataset_config.pin_memory,
             persistent_workers=dataset_config.persistent_workers,
-            external_caption_path=dataset_config.external_caption_path,
-            external_journeydb_caption_path=dataset_config.external_journeydb_caption_path,
-            external_laion12m_caption_path=dataset_config.external_laion12m_caption_path,
-            external_cc12m_caption_path=dataset_config.external_cc12m_caption_path,
-            external_crs3600_caption_path=dataset_config.external_crs3600_caption_path,
-            external_liu4k_gcp_caption_path=dataset_config.external_liu4k_gcp_caption_path,
-            external_open_img_pref_gcp_caption_path=dataset_config.external_open_img_pref_gcp_caption_path,
-            external_open_pickapic_gcp_caption_path=dataset_config.external_open_pickapic_gcp_caption_path,
-            external_instruction_tuning_maya_geneval_train_caption_path=dataset_config.external_instruction_tuning_maya_geneval_train_caption_path,
-            external_instruction_tuning_maya_human_gestures_caption_path=dataset_config.external_instruction_tuning_maya_human_gestures_caption_path,
-            external_instruction_tuning_maya_journey_caption_path=dataset_config.external_instruction_tuning_maya_journey_caption_path,
-            external_instruction_tuning_maya_mscoco_human_caption_path=dataset_config.external_instruction_tuning_maya_mscoco_human_caption_path,
-            external_instruction_tuning_maya_dalle3_caption_path=dataset_config.external_instruction_tuning_maya_dalle3_caption_path,
-            external_instruction_tuning_maya_object_1_caption_path=dataset_config.external_instruction_tuning_maya_object_1_caption_path,
-            external_instruction_tuning_maya_object_2_caption_path=dataset_config.external_instruction_tuning_maya_object_2_caption_path,
-            external_instruction_tuning_maya_occupation_1_caption_path=dataset_config.external_instruction_tuning_maya_occupation_1_caption_path,
-            external_instruction_tuning_maya_occupation_2_caption_path=dataset_config.external_instruction_tuning_maya_occupation_2_caption_path,
-            external_instruction_tuning_maya_text_1_caption_path=dataset_config.external_instruction_tuning_maya_text_1_caption_path,
-            external_instruction_tuning_maya_text_2_caption_path=dataset_config.external_instruction_tuning_maya_text_2_caption_path,
+            external_caption_path=dataset_config.get("external_caption_path", ""),
+            external_journeydb_caption_path=dataset_config.get("external_journeydb_caption_path", ""),
+            external_laion12m_caption_path=dataset_config.get("external_laion12m_caption_path", ""),
+            external_cc12m_caption_path=dataset_config.get("external_cc12m_caption_path", ""),
+            external_crs3600_caption_path=dataset_config.get("external_crs3600_caption_path", ""),
+            external_liu4k_gcp_caption_path=dataset_config.get("external_liu4k_gcp_caption_path", ""),
+            external_open_img_pref_gcp_caption_path=dataset_config.get("external_open_img_pref_gcp_caption_path", ""),
+            external_open_pickapic_gcp_caption_path=dataset_config.get("external_open_pickapic_gcp_caption_path", ""),
+            external_instruction_tuning_NeoBabel_geneval_train_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_geneval_train_caption_path", ""),
+            external_instruction_tuning_NeoBabel_human_gestures_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_human_gestures_caption_path", ""),
+            external_instruction_tuning_NeoBabel_journey_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_journey_caption_path", ""),
+            external_instruction_tuning_NeoBabel_mscoco_human_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_mscoco_human_caption_path", ""),
+            external_instruction_tuning_NeoBabel_dalle3_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_dalle3_caption_path", ""),
+            external_instruction_tuning_NeoBabel_object_1_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_object_1_caption_path", ""),
+            external_instruction_tuning_NeoBabel_object_2_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_object_2_caption_path", ""),
+            external_instruction_tuning_NeoBabel_occupation_1_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_occupation_1_caption_path", ""),
+            external_instruction_tuning_NeoBabel_occupation_2_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_occupation_2_caption_path", ""),
+            external_instruction_tuning_NeoBabel_text_1_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_text_1_caption_path", ""),
+            external_instruction_tuning_NeoBabel_text_2_caption_path=dataset_config.get("external_instruction_tuning_NeoBabel_text_2_caption_path", ""),
             shard_ratios=dataset_config.get("shard_ratios", None),
         )
         print("[DEBUG]: dataset is loaded")
@@ -502,8 +502,11 @@ def main():
                 model, optimizer, lr_scheduler = accelerator.prepare(model, optimizer, lr_scheduler)
                 # Load complete training state
                 accelerator.load_state(checkpoint_path)
-                
+
                 accelerator.print(f"Resuming training from step {global_step}")
+        else:
+            # resume_from_checkpoint is set but no checkpoint exists yet (fresh run)
+            model, optimizer, lr_scheduler = accelerator.prepare(model, optimizer, lr_scheduler)
     else:
         # If not resuming, prepare the model, optimizer, and lr_scheduler
         model, optimizer, lr_scheduler = accelerator.prepare(model, optimizer, lr_scheduler)
@@ -561,8 +564,10 @@ def main():
         for batch, batch_idx, dataloader_idx in combined_dataloader:
             # for loss calculation
             batch_size_t2i = batch["t2i_flow"]["images"].shape[0]
-            # batch_size_lm = len(batch["lm_flow"]["input_ids"])
-            # batch_size_mmu = batch["mmu_flow"]["images"].shape[0]
+            # lm/mmu flows are currently disabled; set their sizes from the
+            # corresponding batches when re-enabling the flows below.
+            batch_size_lm = len(batch["lm_flow"]["input_ids"]) if "lm_flow" in batch else 0
+            batch_size_mmu = batch["mmu_flow"]["images"].shape[0] if "mmu_flow" in batch else 0
 
             # *-------*-------*-------*-------*-------*-------*-------*-------*-------*-------*-------*
             # Build formatted sequences for class-conditional/text-to-image generation
@@ -659,8 +664,8 @@ def main():
                     labels=labels,
                     label_smoothing=config.training.label_smoothing,
                     batch_size_t2i=batch_size_t2i,
-                    # batch_size_lm=batch_size_lm,
-                    # batch_size_mmu=batch_size_mmu,
+                    batch_size_lm=batch_size_lm,
+                    batch_size_mmu=batch_size_mmu,
                     max_seq_length=config.dataset.preprocessing.max_seq_length,
                 )
 

@@ -28,12 +28,29 @@ def top_k(logits, thres=0.9):
     return probs
 
 
-def mask_by_random_topk(mask_len, probs, temperature=1.0, generator=None):
+def mask_by_random_topk(mask_len, probs, temperature=1.0, generator=None, return_min=False):
     confidence = log(probs) + temperature * gumbel_noise(probs, generator=generator)
-    sorted_confidence = torch.sort(confidence, dim=-1).values
-    cut_off = torch.gather(sorted_confidence, 1, mask_len.long())
-    masking = confidence < cut_off
-    return masking
+    if not return_min:
+        # original path (kept bit-identical for t2i_generate parity)
+        sorted_confidence = torch.sort(confidence, dim=-1).values
+        cut_off = torch.gather(sorted_confidence, 1, mask_len.long())
+        masking = confidence < cut_off
+        return masking
+    # Mask-GRPO path: mask EXACTLY k lowest-confidence tokens per row (no ties
+    # ambiguity, so unknown counts stay equal across a rollout group), and return
+    # min(cs_t) — the lowest *kept* token probability — used by the candidate-1
+    # transition probability.
+    sorted_indices = torch.argsort(confidence, dim=-1)
+    batch_size, seq_len = probs.shape
+    masking = torch.zeros((batch_size, seq_len), dtype=torch.bool, device=probs.device)
+    min_probs = torch.zeros((batch_size,), dtype=probs.dtype, device=probs.device)
+    k = mask_len.long().view(-1)
+    if k.numel() == 1:
+        k = k.expand(batch_size)
+    arange = torch.arange(seq_len, device=probs.device).unsqueeze(0)
+    masking.scatter_(1, sorted_indices, arange < k.unsqueeze(1))
+    min_probs = probs.gather(1, sorted_indices.gather(1, k.view(-1, 1))).squeeze(1)
+    return masking, min_probs.detach()
 
 
 def cosine_schedule(t):

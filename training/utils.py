@@ -137,12 +137,12 @@ def mask_or_random_replace_tokens(image_tokens, mask_id, config, mask_schedule, 
         mask = mask.to(torch.bool)
 
     # mask images and create input and labels
-    if config.training.get("noise_type", "mask"):
+    if config.training.get("noise_type", "mask") == "mask":
         input_ids = torch.where(mask, mask_id, image_tokens)
-    elif config.training.get("noise_type", "random_replace"):
+    elif config.training.get("noise_type", "mask") == "random_replace":
         # sample random tokens from the vocabulary
         random_tokens = torch.randint_like(
-            image_tokens, low=0, high=config.model.codebook_size, device=image_tokens.device
+            image_tokens, low=0, high=config.model.neobabel.codebook_size, device=image_tokens.device
         )
         input_ids = torch.where(mask, random_tokens, image_tokens)
     else:

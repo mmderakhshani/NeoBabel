@@ -50,7 +50,7 @@ def replace_person_token(t):
     "Used for CC12M"
     t = re.sub("<person>([,\s]*(and)*[,\s]*<person>)+", " people ", t)
     while "<person>" in t:
-        t = t.replace("<person>", f" {random.choices(person_token)} ", 1)
+        t = t.replace("<person>", f" {random.choice(person_token)} ", 1)
     return t
 
 
@@ -178,17 +178,17 @@ class Text2ImageDataset:
             external_liu4k_gcp_caption_path: Optional[str] = '',
             external_open_img_pref_gcp_caption_path: Optional[str] = '',
             external_open_pickapic_gcp_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_geneval_train_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_human_gestures_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_journey_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_mscoco_human_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_dalle3_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_object_1_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_object_2_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_occupation_1_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_occupation_2_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_text_1_caption_path: Optional[str] = '',
-            external_instruction_tuning_maya_text_2_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_geneval_train_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_human_gestures_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_journey_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_mscoco_human_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_dalle3_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_object_1_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_object_2_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_occupation_1_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_occupation_2_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_text_1_caption_path: Optional[str] = '',
+            external_instruction_tuning_NeoBabel_text_2_caption_path: Optional[str] = '',
             is_captioning: bool = False,
             add_caption_prompt: bool = False,
             long_caption: bool = True,
@@ -207,17 +207,17 @@ class Text2ImageDataset:
         self.external_liu4k_gcp_caption_path = external_liu4k_gcp_caption_path
         self.external_open_img_pref_gcp_caption_path = external_open_img_pref_gcp_caption_path
         self.external_open_pickapic_gcp_caption_path = external_open_pickapic_gcp_caption_path
-        self.external_instruction_tuning_maya_geneval_train_caption_path = external_instruction_tuning_maya_geneval_train_caption_path
-        self.external_instruction_tuning_maya_human_gestures_caption_path = external_instruction_tuning_maya_human_gestures_caption_path
-        self.external_instruction_tuning_maya_journey_caption_path = external_instruction_tuning_maya_journey_caption_path
-        self.external_instruction_tuning_maya_mscoco_human_caption_path = external_instruction_tuning_maya_mscoco_human_caption_path
-        self.external_instruction_tuning_maya_dalle3_caption_path = external_instruction_tuning_maya_dalle3_caption_path
-        self.external_instruction_tuning_maya_object_1_caption_path = external_instruction_tuning_maya_object_1_caption_path
-        self.external_instruction_tuning_maya_object_2_caption_path = external_instruction_tuning_maya_object_2_caption_path
-        self.external_instruction_tuning_maya_occupation_1_caption_path = external_instruction_tuning_maya_occupation_1_caption_path
-        self.external_instruction_tuning_maya_occupation_2_caption_path = external_instruction_tuning_maya_occupation_2_caption_path
-        self.external_instruction_tuning_maya_text_1_caption_path = external_instruction_tuning_maya_text_1_caption_path
-        self.external_instruction_tuning_maya_text_2_caption_path = external_instruction_tuning_maya_text_2_caption_path
+        self.external_instruction_tuning_NeoBabel_geneval_train_caption_path = external_instruction_tuning_NeoBabel_geneval_train_caption_path
+        self.external_instruction_tuning_NeoBabel_human_gestures_caption_path = external_instruction_tuning_NeoBabel_human_gestures_caption_path
+        self.external_instruction_tuning_NeoBabel_journey_caption_path = external_instruction_tuning_NeoBabel_journey_caption_path
+        self.external_instruction_tuning_NeoBabel_mscoco_human_caption_path = external_instruction_tuning_NeoBabel_mscoco_human_caption_path
+        self.external_instruction_tuning_NeoBabel_dalle3_caption_path = external_instruction_tuning_NeoBabel_dalle3_caption_path
+        self.external_instruction_tuning_NeoBabel_object_1_caption_path = external_instruction_tuning_NeoBabel_object_1_caption_path
+        self.external_instruction_tuning_NeoBabel_object_2_caption_path = external_instruction_tuning_NeoBabel_object_2_caption_path
+        self.external_instruction_tuning_NeoBabel_occupation_1_caption_path = external_instruction_tuning_NeoBabel_occupation_1_caption_path
+        self.external_instruction_tuning_NeoBabel_occupation_2_caption_path = external_instruction_tuning_NeoBabel_occupation_2_caption_path
+        self.external_instruction_tuning_NeoBabel_text_1_caption_path = external_instruction_tuning_NeoBabel_text_1_caption_path
+        self.external_instruction_tuning_NeoBabel_text_2_caption_path = external_instruction_tuning_NeoBabel_text_2_caption_path
         self.is_captioning = is_captioning
         self.language = language  
         self.translations_cache = {}
@@ -226,21 +226,21 @@ class Text2ImageDataset:
         self.translations_cache_liu4k_gcp = {}
         self.translations_cache_open_img_pref_gcp = {}
         self.translations_cache_open_pickapic_gcp = {}
-        self.translations_cache_instruction_tuning_maya_geneval_train = {}
-        self.translations_cache_instruction_tuning_maya_human_gestures = {}
-        self.translations_cache_instruction_tuning_maya_journey = {}
-        self.translations_cache_instruction_tuning_maya_mscoco_human = {}
-        self.translations_cache_instruction_tuning_maya_dalle3 = {}
-        self.translations_cache_instruction_tuning_maya_object_1 = {}
-        self.translations_cache_instruction_tuning_maya_object_2 = {}
-        self.translations_cache_instruction_tuning_maya_occupation_1 = {}
-        self.translations_cache_instruction_tuning_maya_occupation_2 = {}
-        self.translations_cache_instruction_tuning_maya_text_1 = {}
-        self.translations_cache_instruction_tuning_maya_text_2 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_geneval_train = {}
+        self.translations_cache_instruction_tuning_NeoBabel_human_gestures = {}
+        self.translations_cache_instruction_tuning_NeoBabel_journey = {}
+        self.translations_cache_instruction_tuning_NeoBabel_mscoco_human = {}
+        self.translations_cache_instruction_tuning_NeoBabel_dalle3 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_object_1 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_object_2 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_occupation_1 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_occupation_2 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_text_1 = {}
+        self.translations_cache_instruction_tuning_NeoBabel_text_2 = {}
         self.lock = Lock()  # Create a lock to prevent multiple workers from loading the same file
         self.add_caption_prompt = add_caption_prompt
         if self.add_caption_prompt:
-            with open("/mnt/bn/vgfm2/test_dit/LlmDiffuser_phi1.5/LlmDiffuser/questions.json") as f:
+            with open("./training/questions.json") as f:
                 self.caption_prompt = json.load(f)
                 self.caption_prompt = ['USER: \n' + prompt + ' ASSISTANT:' for prompt in self.caption_prompt]
         else:
@@ -279,13 +279,13 @@ class Text2ImageDataset:
         if external_liu4k_gcp_caption_path != '':
             self.preload_translations_liu4k_gcp(self.external_liu4k_gcp_caption_path)
         else:
-            self.filenames2captions_liu4k_gcp = {}
+            self.translations_cache_liu4k_gcp = {}
             print("No captions for liu4k_gcp")
-            
+
         if external_open_img_pref_gcp_caption_path != '':
             self.preload_translations_open_img_pref_gcp(self.external_open_img_pref_gcp_caption_path)
         else:
-            self.filenames2captions_open_img_pref_gcp = {}
+            self.translations_cache_open_img_pref_gcp = {}
             print("No captions for open_img_pref_gcp")
 
         if external_open_pickapic_gcp_caption_path != '':
@@ -295,71 +295,71 @@ class Text2ImageDataset:
             self.translations_cache_pickapic = None
             print("No captions for pickapic")
 
-        if external_instruction_tuning_maya_geneval_train_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_geneval_train(self.external_instruction_tuning_maya_geneval_train_caption_path)
+        if external_instruction_tuning_NeoBabel_geneval_train_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_geneval_train(self.external_instruction_tuning_NeoBabel_geneval_train_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_geneval_train = None
-            print("No captions for instruction_tuning_maya_geneval_train")
+            self.translations_cache_instruction_tuning_NeoBabel_geneval_train = None
+            print("No captions for instruction_tuning_NeoBabel_geneval_train")
             
-        if external_instruction_tuning_maya_human_gestures_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_human_gestures(self.external_instruction_tuning_maya_human_gestures_caption_path)
+        if external_instruction_tuning_NeoBabel_human_gestures_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_human_gestures(self.external_instruction_tuning_NeoBabel_human_gestures_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_human_gestures = None
-            print("No captions for instruction_tuning_maya_human_gestures")
+            self.translations_cache_instruction_tuning_NeoBabel_human_gestures = None
+            print("No captions for instruction_tuning_NeoBabel_human_gestures")
             
-        if external_instruction_tuning_maya_journey_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_journey(self.external_instruction_tuning_maya_journey_caption_path)
+        if external_instruction_tuning_NeoBabel_journey_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_journey(self.external_instruction_tuning_NeoBabel_journey_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_journey = None
-            print("No captions for instruction_tuning_maya_journey")
+            self.translations_cache_instruction_tuning_NeoBabel_journey = None
+            print("No captions for instruction_tuning_NeoBabel_journey")
             
-        if external_instruction_tuning_maya_mscoco_human_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_mscoco_human(self.external_instruction_tuning_maya_mscoco_human_caption_path)
+        if external_instruction_tuning_NeoBabel_mscoco_human_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_mscoco_human(self.external_instruction_tuning_NeoBabel_mscoco_human_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_mscoco_human = None
-            print("No captions for instruction_tuning_maya_mscoco_human")
+            self.translations_cache_instruction_tuning_NeoBabel_mscoco_human = None
+            print("No captions for instruction_tuning_NeoBabel_mscoco_human")
             
-        if external_instruction_tuning_maya_dalle3_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_dalle3(self.external_instruction_tuning_maya_dalle3_caption_path)
+        if external_instruction_tuning_NeoBabel_dalle3_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_dalle3(self.external_instruction_tuning_NeoBabel_dalle3_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_dalle3 = None
-            print("No captions for instruction_tuning_maya_dalle3")
+            self.translations_cache_instruction_tuning_NeoBabel_dalle3 = None
+            print("No captions for instruction_tuning_NeoBabel_dalle3")
             
-        if external_instruction_tuning_maya_object_1_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_object_1(self.external_instruction_tuning_maya_object_1_caption_path)
+        if external_instruction_tuning_NeoBabel_object_1_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_object_1(self.external_instruction_tuning_NeoBabel_object_1_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_object_1 = None
-            print("No captions for instruction_tuning_maya_object_1")
+            self.translations_cache_instruction_tuning_NeoBabel_object_1 = None
+            print("No captions for instruction_tuning_NeoBabel_object_1")
             
-        if external_instruction_tuning_maya_object_2_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_object_2(self.external_instruction_tuning_maya_object_2_caption_path)
+        if external_instruction_tuning_NeoBabel_object_2_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_object_2(self.external_instruction_tuning_NeoBabel_object_2_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_object_2 = None
-            print("No captions for instruction_tuning_maya_object_2")
+            self.translations_cache_instruction_tuning_NeoBabel_object_2 = None
+            print("No captions for instruction_tuning_NeoBabel_object_2")
             
-        if external_instruction_tuning_maya_occupation_1_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_occupation_1(self.external_instruction_tuning_maya_occupation_1_caption_path)
+        if external_instruction_tuning_NeoBabel_occupation_1_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_occupation_1(self.external_instruction_tuning_NeoBabel_occupation_1_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_occupation_1 = None
-            print("No captions for instruction_tuning_maya_occupation_1")
+            self.translations_cache_instruction_tuning_NeoBabel_occupation_1 = None
+            print("No captions for instruction_tuning_NeoBabel_occupation_1")
         
-        if external_instruction_tuning_maya_occupation_2_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_occupation_2(self.external_instruction_tuning_maya_occupation_2_caption_path)
+        if external_instruction_tuning_NeoBabel_occupation_2_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_occupation_2(self.external_instruction_tuning_NeoBabel_occupation_2_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_occupation_2 = None
-            print("No captions for instruction_tuning_maya_occupation_2")
+            self.translations_cache_instruction_tuning_NeoBabel_occupation_2 = None
+            print("No captions for instruction_tuning_NeoBabel_occupation_2")
             
-        if external_instruction_tuning_maya_text_1_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_text_1(self.external_instruction_tuning_maya_text_1_caption_path)
+        if external_instruction_tuning_NeoBabel_text_1_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_text_1(self.external_instruction_tuning_NeoBabel_text_1_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_text_1 = None
-            print("No captions for instruction_tuning_maya_text_1")
+            self.translations_cache_instruction_tuning_NeoBabel_text_1 = None
+            print("No captions for instruction_tuning_NeoBabel_text_1")
             
-        if external_instruction_tuning_maya_text_2_caption_path != '':
-            self.preload_translations_instruction_tuning_maya_text_2(self.external_instruction_tuning_maya_text_2_caption_path)
+        if external_instruction_tuning_NeoBabel_text_2_caption_path != '':
+            self.preload_translations_instruction_tuning_NeoBabel_text_2(self.external_instruction_tuning_NeoBabel_text_2_caption_path)
         else:
-            self.translations_cache_instruction_tuning_maya_text_2 = None
-            print("No captions for instruction_tuning_maya_text_2")
+            self.translations_cache_instruction_tuning_NeoBabel_text_2 = None
+            print("No captions for instruction_tuning_NeoBabel_text_2")
         
         # Handle shard ratios
         if shard_ratios is None:
@@ -376,15 +376,19 @@ class Text2ImageDataset:
             else:
                 return text 
 
-        # print(f"train_shards_path_or_url: {train_shards_path_or_url}")
-        # print(f"type of train_shards_path_or_url: {type(train_shards_path_or_url)}")
-        # Expand shard lists from dict
-        assert isinstance(train_shards_path_or_url, omegaconf.dictconfig.DictConfig), (
-            "train_shards_path_or_url must be a dict with 'laion', 'jdb', 'internal'"
-        )
-        laion_urls = train_shards_path_or_url.get("laion", [])
-        jdb_urls = train_shards_path_or_url.get("jdb", [])
-        internal_urls = train_shards_path_or_url.get("internal", [])
+        # Expand shard lists. Accepts either a mapping with 'laion'/'jdb'/'internal'
+        # groups (DictConfig or plain dict) or a flat list/str of shard urls,
+        # which is treated as a single 'laion'-style group.
+        if isinstance(train_shards_path_or_url, (omegaconf.dictconfig.DictConfig, dict)):
+            laion_urls = train_shards_path_or_url.get("laion", [])
+            jdb_urls = train_shards_path_or_url.get("jdb", [])
+            internal_urls = train_shards_path_or_url.get("internal", [])
+        else:
+            if isinstance(train_shards_path_or_url, str):
+                train_shards_path_or_url = [train_shards_path_or_url]
+            laion_urls = list(train_shards_path_or_url)
+            jdb_urls = []
+            internal_urls = []
 
         laion_shards = list(itertools.chain.from_iterable(braceexpand(u) for u in laion_urls))
         jdb_shards = list(itertools.chain.from_iterable(braceexpand(u) for u in jdb_urls))
@@ -421,17 +425,22 @@ class Text2ImageDataset:
             )
 
 
-        # Create individual group datasets
-        laion_ds = build_group_pipeline(laion_shards, buffer_size=shuffle_buffer_size)
-        jdb_ds = build_group_pipeline(jdb_shards, buffer_size=shuffle_buffer_size)
-        internal_ds = build_group_pipeline(internal_shards, buffer_size=shuffle_buffer_size)
+        # Create individual group datasets (only for non-empty groups:
+        # ResampledShards asserts on empty shard lists)
+        groups = [("laion", laion_shards), ("jdb", jdb_shards), ("internal", internal_shards)]
+        groups = [(name, shards) for name, shards in groups if len(shards) > 0]
+        assert groups, "Text2ImageDataset: no training shards provided"
 
+        group_datasets = [build_group_pipeline(shards, buffer_size=shuffle_buffer_size)
+                          for _, shards in groups]
 
-        # Mix them according to shard_ratios
-        mixed = wds.RandomMix(
-            [laion_ds, jdb_ds, internal_ds],
-            probs=shard_ratios.values(),
-        )
+        # Mix them according to shard_ratios (looked up by group name so config
+        # key order doesn't matter); fall back to weighting by shard count.
+        if shard_ratios is not None:
+            probs = [shard_ratios[name] for name, _ in groups]
+        else:
+            probs = [len(shards) for _, shards in groups]
+        mixed = wds.RandomMix(group_datasets, probs=probs)
 
         # Wrap mixed in DataPipeline to batch correctly
         final_ds = wds.DataPipeline(
@@ -599,189 +608,189 @@ class Text2ImageDataset:
         print(f"pickapic english data's keys: {list(data['English'].keys())[:10]}")
         print("pickapic data loaded")
 
-    def preload_translations_instruction_tuning_maya_geneval_train(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_geneval_train(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_geneval_train:
+            if not self.translations_cache_instruction_tuning_NeoBabel_geneval_train:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"Geneval_train"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_geneval_train = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_geneval_train = shm_name
                 print(f"Geneval_train data's keys: {data.keys()}")
-                print(f"instruction_tuning_maya_geneval_train english data's keys: {list(data['English'].keys())[:10]}")
-                print("instruction_tuning_maya_geneval_train data loaded")
+                print(f"instruction_tuning_NeoBabel_geneval_train english data's keys: {list(data['English'].keys())[:10]}")
+                print("instruction_tuning_NeoBabel_geneval_train data loaded")
 
-    def preload_translations_instruction_tuning_maya_human_gestures(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_human_gestures(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_human_gestures:
+            if not self.translations_cache_instruction_tuning_NeoBabel_human_gestures:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"Human_gestures"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_human_gestures = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_human_gestures = shm_name
                 print(f"Human_gestures data's keys: {data.keys()}")
                 print(f"Human_gestures english data's keys: {list(data['English'].keys())[:10]}")
                 print("Human_gestures data loaded")
 
-    def preload_translations_instruction_tuning_maya_journey(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_journey(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_journey:
+            if not self.translations_cache_instruction_tuning_NeoBabel_journey:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"Journey"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_journey = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_journey = shm_name
                 print(f"Journey data's keys: {data.keys()}")
                 print(f"Journey english data's keys: {list(data['English'].keys())[:10]}")
                 print("Journey data loaded")
 
-    def preload_translations_instruction_tuning_maya_mscoco_human(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_mscoco_human(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_mscoco_human:
+            if not self.translations_cache_instruction_tuning_NeoBabel_mscoco_human:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"MSCOCO_human"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_mscoco_human = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_mscoco_human = shm_name
                 print(f"MSCOCO_human data's keys: {data.keys()}")
                 print(f"MSCOCO_human english data's keys: {list(data['English'].keys())[:10]}")
                 print("MSCOCO_human data loaded")
 
-    def preload_translations_instruction_tuning_maya_dalle3(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_dalle3(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_dalle3:
+            if not self.translations_cache_instruction_tuning_NeoBabel_dalle3:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"dalle3"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_dalle3 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_dalle3 = shm_name
                 print(f"dalle3 data's keys: {data.keys()}")
                 print(f"dalle3 english data's keys: {list(data['English'].keys())[:10]}")
                 print("dalle3 data loaded")
 
-    def preload_translations_instruction_tuning_maya_object_1(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_object_1(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_object_1:
+            if not self.translations_cache_instruction_tuning_NeoBabel_object_1:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"object_1"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_object_1 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_object_1 = shm_name
                 print(f"object_1 data's keys: {data.keys()}")
                 print(f"object_1 english data's keys: {list(data['English'].keys())[:10]}")
                 print("object_1 data loaded")
     
-    def preload_translations_instruction_tuning_maya_object_2(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_object_2(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_object_2:
+            if not self.translations_cache_instruction_tuning_NeoBabel_object_2:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"object_2"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_object_2 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_object_2 = shm_name
                 print(f"object_2 data's keys: {data.keys()}")
                 print(f"object_2 english data's keys: {list(data['English'].keys())[:10]}")
                 print("object_2 data loaded")
 
-    def preload_translations_instruction_tuning_maya_occupation_1(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_occupation_1(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_occupation_1:
+            if not self.translations_cache_instruction_tuning_NeoBabel_occupation_1:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"occupation_1"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_occupation_1 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_occupation_1 = shm_name
                 print(f"occupation_1 data's keys: {data.keys()}")
                 print(f"occupation_1 english data's keys: {list(data['English'].keys())[:10]}")
                 print("occupation_1 data loaded")
     
-    def preload_translations_instruction_tuning_maya_occupation_2(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_occupation_2(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_occupation_2:
+            if not self.translations_cache_instruction_tuning_NeoBabel_occupation_2:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"occupation_2"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_occupation_2 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_occupation_2 = shm_name
                 print(f"occupation_2 data's keys: {data.keys()}")
                 print(f"occupation_2 english data's keys: {list(data['English'].keys())[:10]}")
                 print("occupation_2 data loaded")
 
-    def preload_translations_instruction_tuning_maya_text_1(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_text_1(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_text_1:
+            if not self.translations_cache_instruction_tuning_NeoBabel_text_1:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"text_1"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_text_1 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_text_1 = shm_name
                 print(f"text_1 data's keys: {data.keys()}")
                 print(f"text_1 english data's keys: {list(data['English'].keys())[:10]}")
                 print("text_1 data loaded")
 
-    def preload_translations_instruction_tuning_maya_text_2(self, filepath):
+    def preload_translations_instruction_tuning_NeoBabel_text_2(self, filepath):
         if not filepath:
             return
         
         with self.lock:
-            if not self.translations_cache_instruction_tuning_maya_text_2:
+            if not self.translations_cache_instruction_tuning_NeoBabel_text_2:
                 # read the json file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = json.load(f)
                 # Create shared memory cache with unique name for this shard
                 shm_name = f"text_2"
                 cache = SharedJSONCache(shm_name, data)
-                self.translations_cache_instruction_tuning_maya_text_2 = shm_name
+                self.translations_cache_instruction_tuning_NeoBabel_text_2 = shm_name
                 print(f"text_2 data's keys: {data.keys()}")
                 print(f"text_2 english data's keys: {list(data['English'].keys())[:10]}")
                 print("text_2 data loaded")
@@ -810,7 +819,7 @@ class Text2ImageDataset:
         
         # Use lock to ensure only one worker loads the data
         with self.lock:
-            if not self.translations_cache_liu4k_gcp is None:
+            if not self.translations_cache_liu4k_gcp:  # load once
                 # read the tsv file and convert it to a dictionary
                 with open(filepath, "r") as f:
                     data = f.readlines()
@@ -843,7 +852,7 @@ class Text2ImageDataset:
         
         # Use lock to ensure only one worker loads the data
         with self.lock:
-            if not self.translations_cache_open_img_pref_gcp is None:
+            if not self.translations_cache_open_img_pref_gcp:  # load once
                 data_dict = {}
                 # load the csv file and convert it to a dictionary
                 with open(filepath, "r") as f:
@@ -871,7 +880,7 @@ class Text2ImageDataset:
             return
         
         with self.lock:
-            if not self.translations_cache_open_pickapic_gcp is None:
+            if not self.translations_cache_open_pickapic_gcp:  # load once
                 data_dict = {}
                 # load the csv file and convert it to a dictionary
                 with open(filepath, "r") as f:
@@ -923,7 +932,8 @@ class Text2ImageDataset:
             shm_name = self.translations_cache.get(shard_name)
             if shm_name:
                 cache = SharedJSONCache.attach(shm_name)
-                captions = cache.get_data().get(language, "English").get(key, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(key, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ''
@@ -938,7 +948,8 @@ class Text2ImageDataset:
                 shm_name = "pickapic"
                 language = self._get_language()
                 cache = SharedJSONCache.attach(shm_name)
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -948,11 +959,12 @@ class Text2ImageDataset:
 
         elif "Geneval_train" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_geneval_train:
+            if self.translations_cache_instruction_tuning_NeoBabel_geneval_train:
                 shm_name = "Geneval_train"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -962,11 +974,12 @@ class Text2ImageDataset:
 
         elif "Human_gestures" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_human_gestures:
+            if self.translations_cache_instruction_tuning_NeoBabel_human_gestures:
                 shm_name = "Human_gestures"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -976,11 +989,12 @@ class Text2ImageDataset:
         
         elif "instruction_tuning_maya/Journey" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_journey:
+            if self.translations_cache_instruction_tuning_NeoBabel_journey:
                 shm_name = "Journey"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -990,11 +1004,12 @@ class Text2ImageDataset:
         
         elif "MSCOCO_human" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_mscoco_human:
+            if self.translations_cache_instruction_tuning_NeoBabel_mscoco_human:
                 shm_name = "MSCOCO_human"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1004,11 +1019,12 @@ class Text2ImageDataset:
         
         elif "dalle3" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_dalle3:
+            if self.translations_cache_instruction_tuning_NeoBabel_dalle3:
                 shm_name = "dalle3"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1018,11 +1034,12 @@ class Text2ImageDataset:
 
         elif "object_1" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_object_1:
+            if self.translations_cache_instruction_tuning_NeoBabel_object_1:
                 shm_name = "object_1"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1032,11 +1049,12 @@ class Text2ImageDataset:
 
         elif "object_2" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_object_2:
+            if self.translations_cache_instruction_tuning_NeoBabel_object_2:
                 shm_name = "object_2"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1046,11 +1064,12 @@ class Text2ImageDataset:
         
         elif "occupation_1" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_occupation_1:
+            if self.translations_cache_instruction_tuning_NeoBabel_occupation_1:
                 shm_name = "occupation_1"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1060,11 +1079,12 @@ class Text2ImageDataset:
         
         elif "occupation_2" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_occupation_2:
+            if self.translations_cache_instruction_tuning_NeoBabel_occupation_2:
                 shm_name = "occupation_2"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1074,11 +1094,12 @@ class Text2ImageDataset:
         
         elif "text_1" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_text_1:
+            if self.translations_cache_instruction_tuning_NeoBabel_text_1:
                 shm_name = "text_1"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1088,11 +1109,12 @@ class Text2ImageDataset:
 
         elif "text_2" in url:
             filename = sample["__key__"] + ".jpg"
-            if self.translations_cache_instruction_tuning_maya_text_2:
+            if self.translations_cache_instruction_tuning_NeoBabel_text_2:
                 shm_name = "text_2"
                 cache = SharedJSONCache.attach(shm_name)
                 language = self._get_language()
-                captions = cache.get_data().get(language, "English").get(filename, '')
+                _data = cache.get_data()
+                captions = _data.get(language, _data.get("English", {})).get(filename, '')
                 cache.shm.close()  # Important: close but don't unlink
             else:
                 captions = ""
@@ -1188,22 +1210,16 @@ class Text2ImageDataset:
 
 
     def __del__(self):
-        # Cleanup shared memory
-        for shm_name in self.translations_cache.values():
-            try:
-                SharedMemory(name=shm_name).unlink()
-            except FileNotFoundError:
-                pass
-        for shm_name in self.translations_cache_journeydb.values():
-            try:
-                SharedMemory(name=shm_name).unlink()
-            except FileNotFoundError:
-                pass
-        self.shm.close()
-        try:
-            self.shm.unlink()  # Only the first process should unlink
-        except FileNotFoundError:
-            pass
+        # Cleanup shared memory (caches may be None or plain strings depending on config)
+        for cache in (getattr(self, "translations_cache", None),
+                      getattr(self, "translations_cache_journeydb", None)):
+            if not isinstance(cache, dict):
+                continue
+            for shm_name in cache.values():
+                try:
+                    SharedMemory(name=shm_name).unlink()
+                except FileNotFoundError:
+                    pass
 
 
 if __name__ == '__main__':

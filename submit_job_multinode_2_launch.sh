@@ -9,7 +9,6 @@
 #SBATCH --job-name=neobabel_pretraining_stage1_2_node
 #SBATCH --output=logs/%x_%j_logs.log
 #SBATCH --error=logs/%x_%j_errors.log
-#SBATCH --nodelist=gcn159,gcn160
 
 head_node_ip=$(getent hosts $(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1) | awk '{ print $1 }')
 echo "Head node IP: $head_node_ip"

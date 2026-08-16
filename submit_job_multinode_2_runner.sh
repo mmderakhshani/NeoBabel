@@ -20,6 +20,9 @@ export NCCL_SOCKET_IFNAME="eno2np0"
 # export NCCL_P2P_DISABLE=1
 # export NCCL_DEBUG=INFO
 
+# Repo root on PYTHONPATH so `training.*` imports resolve under accelerate launch
+export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
+
 # Set the machine rank based on SLURM_NODEID
 export MACHINE_RANK=$SLURM_NODEID
 # Determine the appropriate YAML config file for each node 

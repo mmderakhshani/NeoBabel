@@ -128,88 +128,91 @@ def generate(input_csv: str, save_frequency: int = 10):
     # Define requests per second
     requests_per_second = 4000 // 60  # Approximately 67 requests per second
 
-    # Check if the length of df is a multiple of requests_per_second
-    remainder = len(df) % requests_per_second
-    if remainder != 0:
-        # Calculate how many rows to add
-        rows_to_add = requests_per_second - remainder
-        # Repeat the last row of the dataframe
-        last_row = df.iloc[-1]
-        last_row_df = pd.DataFrame([last_row] * rows_to_add, columns=df.columns)
-        df = pd.concat([df, last_row_df], ignore_index=True)
-
     # Initialize successful request counter and start time
     successful_requests = 0
     start_time = time.time()
-    
+    stop_processing = False
+
     # Use ThreadPoolExecutor to process captions concurrently
     with ThreadPoolExecutor(max_workers=requests_per_second) as executor:
         futures = []
         future_to_image_name = {}
+
+        def drain_futures(pending_futures):
+            """Harvest a batch of futures; returns True if processing should stop."""
+            nonlocal error_count, consecutive_errors, successful_requests, start_time
+            stop = False
+            for future in as_completed(pending_futures):
+                image_name = future_to_image_name[future]
+                try:
+                    translations = json.loads(future.result())
+
+                    # Store translations
+                    result["Western Persian"][image_name] = translations["Persian"]
+                    result["Dutch"][image_name] = translations["Dutch"]
+                    result["French"][image_name] = translations["French"]
+                    result["Hindi"][image_name] = translations["Hindi"]
+                    result["Chinese (Simplified)"][image_name] = translations["Chinese (simplified)"]
+
+                    processed_ids.add(image_name)
+                    consecutive_errors = 0  # Reset error counter on success
+                    successful_requests += 1  # Increment successful request counter
+
+                    # Save progress periodically
+                    if len(processed_ids) % save_frequency == 0:
+                        save_progress(result, processed_ids, checkpoint_file, progress_file)
+                        print(f"\nProgress saved: {len(processed_ids)}/{total_items} items processed")
+
+                except Exception as e:
+                    print(f"\nError processing caption for image {image_name}: {e}")
+                    error_count += 1
+                    consecutive_errors += 1
+
+                    # Save progress on error
+                    save_progress(result, processed_ids, checkpoint_file, progress_file)
+                    print(f"Progress saved after error. {len(processed_ids)}/{total_items} items processed")
+
+                    if consecutive_errors >= 3:
+                        print("Too many consecutive errors, taking a longer break...")
+                        time.sleep(60)  # 1 minute break
+                        consecutive_errors = 0
+
+                    if error_count > 50:
+                        print("Too many total errors, stopping processing")
+                        stop = True
+
+            # Log successful requests per minute
+            elapsed_time = time.time() - start_time
+            if elapsed_time >= 60:
+                print(f"Successful requests in the last minute: {successful_requests}")
+                successful_requests = 0
+                start_time = time.time()
+
+            return stop
+
         for idx, row in df.iterrows():
             image_name = f"{row['image_id']}"
             if image_name in processed_ids or pd.isna(row['caption']):
                 print(f"Skipping {image_name} (already processed or caption is NaN)")
                 continue
-            
+
             future = executor.submit(process_caption_with_retry, client, row['caption'])
             futures.append(future)
             future_to_image_name[future] = image_name
-            
+
             # Process in batches of requests_per_second
             if len(futures) >= requests_per_second:
-                # print(f"Processing batch of {requests_per_second} futures")  # Debugging
-                for future in as_completed(futures):
-                    image_name = future_to_image_name[future]
-                    try:
-                        translations = json.loads(future.result())
-                        
-                        # Store translations
-                        result["Western Persian"][image_name] = translations["Persian"]
-                        result["Dutch"][image_name] = translations["Dutch"]
-                        result["French"][image_name] = translations["French"]
-                        result["Hindi"][image_name] = translations["Hindi"]
-                        result["Chinese (Simplified)"][image_name] = translations["Chinese (simplified)"]
-                        
-                        processed_ids.add(image_name)
-                        consecutive_errors = 0  # Reset error counter on success
-                        successful_requests += 1  # Increment successful request counter
-                        
-                        # Save progress periodically
-                        if len(processed_ids) % save_frequency == 0:
-                            save_progress(result, processed_ids, checkpoint_file, progress_file)
-                            print(f"\nProgress saved: {len(processed_ids)}/{total_items} items processed")
-                        
-                    except Exception as e:
-                        print(f"\nError processing caption for image {image_name}: {e}")
-                        error_count += 1
-                        consecutive_errors += 1
-                        
-                        # Save progress on error
-                        save_progress(result, processed_ids, checkpoint_file, progress_file)
-                        print(f"Progress saved after error. {len(processed_ids)}/{total_items} items processed")
-                        
-                        if consecutive_errors >= 3:
-                            print("Too many consecutive errors, taking a longer break...")
-                            time.sleep(60)  # 1 minute break
-                            consecutive_errors = 0
-                        
-                        if error_count > 50:
-                            print("Too many total errors, stopping processing")
-                            break
-                
-                # Log successful requests per minute
-                elapsed_time = time.time() - start_time
-                if elapsed_time >= 60:
-                    print(f"Successful requests in the last minute: {successful_requests}")
-                    successful_requests = 0
-                    start_time = time.time()
-                
-                # Clear futures and wait for the next second
+                stop_processing = drain_futures(futures)
                 futures.clear()
+                if stop_processing:
+                    break
                 time.sleep(1)  # Wait for 1 second before the next batch
-                # print(f"Batch processed. processed_ids count: {len(processed_ids)}, error_count: {error_count}")  # Debugging
-        print("Finished processing all batches.") 
+
+        # Drain any leftover futures from the final partial batch
+        if futures and not stop_processing:
+            drain_futures(futures)
+            futures.clear()
+        print("Finished processing all batches.")
     
     # Save final results
     translation_file = os.path.join(input_dir, 'translations_gemini.json')

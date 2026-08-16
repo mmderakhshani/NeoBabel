@@ -17,7 +17,7 @@ model:
     neobabel:
         load_from_neobabel: False 
         checkpoint_path: "NeoBabel/checkpoint-500000"
-        pretrained_model_path: "google/gemma-2-2b-it"
+        pretrained_model_path: "google/gemma-2-2b-it" # TODO: update to the public NeoBabel HF repo once weights are published (currently private at Dheerraa/NeoBabel)
         llm_model_path: 'google/gemma-2-2b-it'
         vocab_size: 264203
         llm_vocab_size: 256000
