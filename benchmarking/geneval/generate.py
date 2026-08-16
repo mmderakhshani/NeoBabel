@@ -109,26 +109,28 @@ def main(config, shard_id=0, num_shards=1):
         generator.manual_seed(config.training.seed)
         batch_end = min(batch_start + batch_size, len(metadatas))
         batch_metadatas = metadatas[batch_start:batch_end]
-        prompts = [m['prompt'] for m in batch_metadatas]
-        
-        # Calculate global indices for this batch
-        global_indices = [start_idx + batch_start + i for i in range(len(batch_metadatas))]
 
-        # Create output directories for each sample in batch
-        outpaths = []
-        for global_idx in global_indices:
+        # Keep metadata, prompt and output path aligned: only generate for
+        # samples whose output doesn't exist yet (safe on resumed runs).
+        pending = []
+        for i, metadata in enumerate(batch_metadatas):
+            global_idx = start_idx + batch_start + i
             outpath = os.path.join(config.experiment.output_dir, f"{global_idx:0>5}")
             sample_path = os.path.join(outpath, "samples")
-            
+
             # Skip if output already exists
             if os.path.exists(os.path.join(sample_path, "00000.png")):
                 continue
-                
-            os.makedirs(sample_path, exist_ok=True)
-            outpaths.append(outpath)
 
-        if not outpaths:  # Skip if all outputs exist
+            os.makedirs(sample_path, exist_ok=True)
+            pending.append((metadata, outpath))
+
+        if not pending:  # Skip if all outputs exist
             continue
+
+        batch_metadatas = [m for m, _ in pending]
+        outpaths = [o for _, o in pending]
+        prompts = [m['prompt'] for m in batch_metadatas]
 
         print(f"GPU {shard_id} - Processing batch with prompts: {prompts}")
 

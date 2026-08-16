@@ -48,7 +48,7 @@ dataset:
         external_caption_path: ""
         external_laion12m_caption_path: "/home/m2_derakhshani1993/data/stage2/laion/caption/captions-laion"
         external_cc12m_caption_path: ""
-        validation_prompts_file: "validation_prompts/imagenetpromptsmultilingual6_small_stage3.txt"
+        validation_prompts_file: "validation_prompts/imagenetpromptsmultilingual6.txt"
         shuffle_buffer_size: 1000
         num_workers: 32
         resolution: 256

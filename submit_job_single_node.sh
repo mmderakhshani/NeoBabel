@@ -17,5 +17,7 @@ module load CUDA/12.1.1
 source $HOME/miniconda3/etc/profile.d/conda.sh
 conda activate neobabel
 
+export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
+
 wandb login <add_wandb_api_key>
 accelerate launch --config_file accelerate_configs/single_node/4_gpus_deepspeed_zero2.yaml --main_process_port=8888 training/train.py config=configs/neobabel_pretraining_stage1.yaml

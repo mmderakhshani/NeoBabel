@@ -55,6 +55,31 @@ if __name__ == '__main__':
     model = NeoBabel.from_pretrained(config.model.neobabel.pretrained_model_path).to(device)
     model.eval()
 
+    # --- inference speed options (all off by default) ---
+    # precision=bf16          run the transformer in bfloat16 (~3-5x on H100 vs fp32)
+    # attn_implementation=... e.g. flex_attention (torch>=2.5; supports gemma-2 soft-cap
+    #                         and the custom mask, unlike sdpa) — default stays eager
+    # fast_generate=true      cache the text-prefix KV once, forward only the image
+    #                         segment each step (see NeoBabel.t2i_generate_fast)
+    # compile=true            torch.compile the transformer
+    precision = config.get("precision", "fp32")
+    if precision == "bf16" and torch.cuda.is_available() and torch.cuda.is_bf16_supported():
+        model = model.to(torch.bfloat16)
+        print("Running in bf16")
+    attn_impl = config.get("attn_implementation", None)
+    if attn_impl:
+        try:
+            model.neobabel.set_attn_implementation(attn_impl)
+        except AttributeError:
+            model.neobabel.config._attn_implementation = attn_impl
+        print(f"Attention implementation: {attn_impl}")
+    if config.get("compile", False):
+        model.neobabel = torch.compile(model.neobabel)
+        print("torch.compile enabled")
+    generate_fn = model.t2i_generate_fast if config.get("fast_generate", False) else model.t2i_generate
+    mask_dtype = model.neobabel.get_input_embeddings().weight.dtype
+    # --- end speed options ---
+
     mask_token_id = model.config.mask_token_id
 
     # load from users passed arguments
@@ -109,12 +134,14 @@ if __name__ == '__main__':
                                                                 soi_id=int(uni_prompting.sptids_dict['<|soi|>']),
                                                                 eoi_id=int(uni_prompting.sptids_dict['<|eoi|>']),
                                                                 rm_pad_in_image=True)
+            attention_mask = attention_mask.to(mask_dtype)
         else:
             attention_mask = create_attention_mask_predict_next(input_ids,
                                                                 pad_id=int(uni_prompting.sptids_dict['<|pad|>']),
                                                                 soi_id=int(uni_prompting.sptids_dict['<|soi|>']),
                                                                 eoi_id=int(uni_prompting.sptids_dict['<|eoi|>']),
                                                                 rm_pad_in_image=True)
+            attention_mask = attention_mask.to(mask_dtype)
             uncond_input_ids = None
 
         if config.get("mask_schedule", None) is not None:
@@ -125,7 +152,7 @@ if __name__ == '__main__':
             mask_schedule = get_mask_chedule(config.training.get("mask_schedule", "cosine"))
 
         with torch.no_grad():
-            gen_token_ids = model.t2i_generate(
+            gen_token_ids = generate_fn(
                 input_ids=input_ids,
                 uncond_input_ids=uncond_input_ids,
                 attention_mask=attention_mask,
@@ -215,12 +242,14 @@ if __name__ == '__main__':
                                                                     soi_id=int(uni_prompting.sptids_dict['<|soi|>']),
                                                                     eoi_id=int(uni_prompting.sptids_dict['<|eoi|>']),
                                                                     rm_pad_in_image=True)
+                attention_mask = attention_mask.to(mask_dtype)
             else:
                 attention_mask = create_attention_mask_predict_next(input_ids,
                                                                     pad_id=int(uni_prompting.sptids_dict['<|pad|>']),
                                                                     soi_id=int(uni_prompting.sptids_dict['<|soi|>']),
                                                                     eoi_id=int(uni_prompting.sptids_dict['<|eoi|>']),
                                                                     rm_pad_in_image=True)
+                attention_mask = attention_mask.to(mask_dtype)
                 uncond_input_ids = None
 
             if config.get("mask_schedule", None) is not None:
@@ -231,7 +260,7 @@ if __name__ == '__main__':
                 mask_schedule = get_mask_chedule(config.training.get("mask_schedule", "cosine"))
 
             with torch.no_grad():
-                gen_token_ids = model.t2i_generate(
+                gen_token_ids = generate_fn(
                     input_ids=input_ids,
                     uncond_input_ids=uncond_input_ids,
                     attention_mask=attention_mask,
@@ -256,7 +285,7 @@ if __name__ == '__main__':
             elif direction == 'up':
                 gen_token_ids = torch.cat([gen_token_ids, image_down_part], dim=-2)
             else:
-                gen_token_ids = torch.cat([image_left_part, gen_token_ids], dim=-2)
+                gen_token_ids = torch.cat([image_up_part, gen_token_ids], dim=-2)
 
         _, h, w = gen_token_ids.shape
         gen_token_ids = gen_token_ids.reshape(config.training.batch_size, -1)
@@ -271,10 +300,14 @@ if __name__ == '__main__':
         wandb.log({"generated_images": wandb_images}, step=0)
 
     elif config.mode == 't2i':
+        import time
         with open(config.dataset.params.validation_prompts_file, "r") as f:
             validation_prompts = f.read().splitlines()
 
         for step in tqdm(range(0, len(validation_prompts), config.training.batch_size)):
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
+            batch_start_time = time.perf_counter()
             prompts = validation_prompts[step:step + config.training.batch_size]
 
             image_tokens = torch.ones((len(prompts), config.model.neobabel.num_vq_tokens),
@@ -289,12 +322,14 @@ if __name__ == '__main__':
                                                                     soi_id=int(uni_prompting.sptids_dict['<|soi|>']),
                                                                     eoi_id=int(uni_prompting.sptids_dict['<|eoi|>']),
                                                                     rm_pad_in_image=True)
+                attention_mask = attention_mask.to(mask_dtype)
             else:
                 attention_mask = create_attention_mask_predict_next(input_ids,
                                                                     pad_id=int(uni_prompting.sptids_dict['<|pad|>']),
                                                                     soi_id=int(uni_prompting.sptids_dict['<|soi|>']),
                                                                     eoi_id=int(uni_prompting.sptids_dict['<|eoi|>']),
                                                                     rm_pad_in_image=True)
+                attention_mask = attention_mask.to(mask_dtype)
                 uncond_input_ids = None
 
             if config.get("mask_schedule", None) is not None:
@@ -305,7 +340,7 @@ if __name__ == '__main__':
                 mask_schedule = get_mask_chedule(config.training.get("mask_schedule", "cosine"))
 
             with torch.no_grad():
-                gen_token_ids = model.t2i_generate(
+                gen_token_ids = generate_fn(
                     input_ids=input_ids,
                     uncond_input_ids=uncond_input_ids,
                     attention_mask=attention_mask,
@@ -321,6 +356,11 @@ if __name__ == '__main__':
 
             gen_token_ids = torch.clamp(gen_token_ids, max=config.model.neobabel.codebook_size - 1, min=0)
             images = vq_model.decode_code(gen_token_ids)
+
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
+            batch_time = time.perf_counter() - batch_start_time
+            print(f"batch of {len(prompts)}: {batch_time:.2f}s ({batch_time / len(prompts):.2f}s/image)")
 
             images = torch.clamp((images + 1.0) / 2.0, min=0.0, max=1.0)
             images *= 255.0

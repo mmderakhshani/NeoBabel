@@ -2,6 +2,7 @@
 # Significant modifications for NeoBabel.
 
 import collections
+import os
 from typing import Any, Callable, Optional
 
 import torch
@@ -35,16 +36,28 @@ class ImageNetDataset(DatasetFolder):
         self.destination_language = ["english", "french", "hindi", "persian", "dutch", "mandarin"]
 
         self.labels = {}
+        loaded_languages = []
         for language in self.destination_language:
-            with open(f'./training/imagenet_label_mapping_{language}', 'r') as f:
+            mapping_path = f'./training/imagenet_label_mapping_{language}.txt'
+            if not os.path.exists(mapping_path):
+                print(f"Warning: {mapping_path} not found, skipping '{language}' class labels.")
+                continue
+            loaded_languages.append(language)
+            with open(mapping_path, 'r') as f:
                 for l in f:
-                    num, description = l.split(":")
+                    num, description = l.split(":", 1)
                     if self.labels.get(int(num)) is None:
                         self.labels[int(num)] = [description.strip()]
                     else:
                         self.labels[int(num)].append(description.strip())
 
-        print("ImageNet dataset loaded.")
+        if not self.labels:
+            raise FileNotFoundError(
+                "No imagenet_label_mapping_<language>.txt files found under ./training/ "
+                f"(looked for languages: {self.destination_language})"
+            )
+
+        print(f"ImageNet dataset loaded with class labels in: {loaded_languages}")
 
     def __getitem__(self, idx):
 
@@ -60,7 +73,7 @@ class ImageNetDataset(DatasetFolder):
 
         except Exception as e:
             print(e)
-            return self.__getitem__(idx+1)
+            return self.__getitem__((idx + 1) % len(self.samples))
 
     def collate_fn(self, batch):
         batched = collections.defaultdict(list)

@@ -100,7 +100,7 @@ numpy==1.24.4
 nuscenes-devkit==1.1.11
 oauthlib==3.2.2
 omegaconf==2.3.0
-open-clip-torch==2.24.0
+open-clip-torch==2.26.1  # 2.24.0 wheel leaked a top-level 'training' package that shadows ours
 openai-clip
 opencv-python==4.9.0.80
 opencv-python-headless==3.4.18.65
@@ -135,7 +135,6 @@ pyasn1==0.6.0
 pycocotools==2.0.7
 pycparser==2.22
 pycryptodomex==3.20.0
-pycurl==7.43.0.6
 pydantic==1.10.15
 pydantic_core==2.18.3
 Pygments==2.18.0
@@ -200,7 +199,7 @@ tox==3.28.0
 tqdm==4.66.4
 traitlets==5.14.3
 transaction==4.0
-transformers==4.41.1
+transformers==4.44.2  # >=4.42 required for gemma2 architecture (google/gemma-2-2b-it)
 translationstring==1.4
 triton==2.2.0
 typeguard==2.13.3
@@ -226,3 +225,4 @@ yarl==1.9.4
 zope.deprecation==5.0
 zope.interface==6.4.post2
 zope.sqlalchemy==3.1
+setuptools<81  # lightning-utilities 0.11.2 imports pkg_resources, removed in newer setuptools

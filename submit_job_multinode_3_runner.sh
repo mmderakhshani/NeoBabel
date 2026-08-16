@@ -9,6 +9,9 @@ head_node_ip=$(getent hosts $(scontrol show hostnames $SLURM_JOB_NODELIST | head
 
 export NCCL_SOCKET_IFNAME="eno2np0"
 
+# Repo root on PYTHONPATH so `training.*` imports resolve under accelerate launch
+export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
+
 # Set the machine rank based on SLURM_NODEID
 export MACHINE_RANK=$SLURM_NODEID
 # Determine the appropriate YAML config file for each node 

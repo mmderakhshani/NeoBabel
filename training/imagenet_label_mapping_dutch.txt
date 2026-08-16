@@ -1,0 +1,1000 @@
+0: zeelt  
+1: goudvis  
+2: grote witte haai  
+3: tijgerhaai  
+4: hamerhaai  
+5: sidderrog  
+6: pijlstaartrog  
+7: haan  
+8: hen  
+9: struisvogel  
+10: keep  
+11: putter  
+12: huisvink  
+13: junco  
+14: indigo gors  
+15: roodborstje  
+16: buulbuul  
+17: gaai  
+18: ekster  
+19: mees  
+20: waterspreeuw  
+21: wouw  
+22: Amerikaanse zeearend  
+23: gier  
+24: laplanduil  
+25: Europese vuursalamander  
+26: gewone watersalamander  
+27: landfase salamander  
+28: gevlekte salamander  
+29: axolotl  
+30: brulkikker  
+31: boomkikker  
+32: staartkikker  
+33: onechte karetschildpad  
+34: lederschildpad  
+35: modderschildpad  
+36: moerasschildpad  
+37: doosschildpad  
+38: gestreepte gekko  
+39: gewone leguaan  
+40: Amerikaanse kameleon  
+41: zweepstaart  
+42: agame  
+43: kraaghagedis  
+44: alligatorhagedis  
+45: gilamonster  
+46: groene hagedis  
+47: Afrikaanse kameleon  
+48: Komodovaraan  
+49: Afrikaanse krokodil  
+50: Amerikaanse alligator  
+51: triceratops  
+52: blikslaang  
+53: ringnekslang  
+54: varkensslang  
+55: groenslang  
+56: koningsslang  
+57: kousenbandslang  
+58: waterslang  
+59: wurgslang  
+60: nachtslang  
+61: boa constrictor  
+62: rotspython  
+63: Indische cobra  
+64: groene mamba  
+65: zeeslang  
+66: gehoornde adder  
+67: diamant ratelslang  
+68: zijdelings windende ratelslang  
+69: trilobiet  
+70: hooiwagen  
+71: schorpioen  
+72: zwarte en gouden tuinslang  
+73: schuurspin  
+74: tuinslang  
+75: zwarte weduwe  
+76: vogelspin  
+77: wolfspin  
+78: teek  
+79: duizendpoot  
+80: korhoen  
+81: sneeuwhoen  
+82: haantjeshoen  
+83: prairiehoen  
+84: pauw  
+85: kwartel  
+86: patrijs  
+87: grijze Afrikaan  
+88: ara  
+89: zwavelkuif kaketoe  
+90: lori  
+91: coucal  
+92: bijeneter  
+93: neushoornvogel  
+94: kolibrie  
+95: jacamar  
+96: toekan  
+97: woerd  
+98: roodborstzaagmuis  
+99: gans  
+100: zwarte zwaan
+101: olifant  
+102: mierenegel  
+103: vogelbekdier  
+104: wallaby  
+105: koala  
+106: wombat  
+107: kwal  
+108: zeeanemoon  
+109: hersenkoraal  
+110: platworm  
+111: rondworm  
+112: kegel  
+113: slak  
+114: naaktslak  
+115: zeenaaktslak  
+116: chiton  
+117: parelboot  
+118: Dungeness-krab  
+119: rotskrab  
+120: vioolkrab  
+121: koningskrab  
+122: Amerikaanse kreeft  
+123: langoest  
+124: rivierkreeft  
+125: heremietkreeft  
+126: pissebed  
+127: witte ooievaar  
+128: zwarte ooievaar  
+129: lepelaar  
+130: flamingo  
+131: kleine blauwe reiger  
+132: Amerikaanse reiger  
+133: roerdomp  
+134: kraanvogel  
+135: limpkin  
+136: Europese waterhoen  
+137: meerkoet  
+138: trap  
+139: steenloper  
+140: roodkeelstrandloper  
+141: rode scholekster  
+142: langebek  
+143: oesterbank  
+144: pelikaan  
+145: koningspinguïn  
+146: albatros  
+147: grijze walvis  
+148: orka  
+149: doejong  
+150: zeeleeuw  
+151: chihuahua  
+152: Japanse spaniël  
+153: Maltezer hond  
+154: Pekingees  
+155: Shih-Tzu  
+156: Blenheim spaniël  
+157: papillon  
+158: toyterriër  
+159: Rhodesische ridgeback  
+160: Afghaanse windhond  
+161: basset  
+162: beagle  
+163: bloedhond  
+164: bluetick  
+165: zwart en tan coonhound  
+166: Walker-hond  
+167: Engelse foxhound  
+168: redbone  
+169: borzoi  
+170: Ierse wolfshond  
+171: Italiaanse windhond  
+172: whippet  
+173: Ibizahond  
+174: Noorse elandhond  
+175: otterhond  
+176: Saluki  
+177: Schotse deerhound  
+178: Weimaraner  
+179: Staffordshire bullterriër  
+180: Amerikaanse Staffordshireterriër  
+181: Bedlingtonterriër  
+182: Borderterriër  
+183: Kerry blue terriër  
+184: Ierse terriër  
+185: Norfolk terriër  
+186: Norwich terriër  
+187: Yorkshire terriër  
+188: draadharige foxterriër  
+189: Lakelandterriër  
+190: Sealyhamterriër  
+191: Airedale  
+192: cairn  
+193: Australische terriër  
+194: Dandie Dinmont  
+195: Boston bull  
+196: dwergschnauzer  
+197: reuzenschnauzer  
+198: standaard schnauzer  
+199: Schotse terriër  
+200: Tibetaanse terriër  
+201: zijde terriër  
+202: zachte gekamde wheaten terriër  
+203: West Highland white terriër  
+204: Lhasa  
+205: flat-coated retriever  
+206: curly-coated retriever  
+207: golden retriever  
+208: labrador retriever  
+209: Chesapeake Bay retriever  
+210: Duitse korthaar  
+211: vizsla  
+212: Engelse setter  
+213: Ierse setter  
+214: Gordon setter  
+215: Brittany spaniël  
+216: clumber  
+217: Engelse springer  
+218: Welsh springerspaniël  
+219: cockerspaniël  
+220: Sussex spaniël  
+221: Ierse waterspaniël  
+222: kuvasz  
+223: schipperke  
+224: groenendael  
+225: malinois  
+226: briard  
+227: kelpie  
+228: komondor  
+229: Old English sheepdog  
+230: Shetland sheepdog  
+231: collie  
+232: Bordercollie  
+233: Bouvier des Flandres  
+234: Rottweiler  
+235: Duitse herder  
+236: dobermann  
+237: dwergpinscher  
+238: Zwitserse Sennenhond  
+239: Berner Sennenhond  
+240: Appenzeller  
+241: Entlebucher  
+242: boxer  
+243: bullmastiff  
+244: Tibetaanse mastiff  
+245: Franse bulldog  
+246: Deense dog  
+247: Sint-Bernard  
+248: Eskimohond  
+249: malamute  
+250: Siberische husky  
+251: dalmatiër  
+252: affenpinscher  
+253: basenji  
+254: mopshond  
+255: leonberger  
+256: newfoundlander  
+257: Pyreneese berghond  
+258: samojeed  
+259: pomeriaan  
+260: chow chow  
+261: keeshond  
+262: Brabants griffonnetje  
+263: Pembroke  
+264: Cardigan  
+265: toy poedel  
+266: dwergpoedel  
+267: standaard poedel  
+268: Mexicaanse naakthond  
+269: timberwolf  
+270: witte wolf  
+271: rode wolf  
+272: coyote  
+273: dingo  
+274: dhole  
+275: Afrikaanse jachthond  
+276: hyena  
+277: rode vos  
+278: woestijnvos  
+279: poolvos  
+280: grijze vos  
+281: cyperse kat  
+282: tijgerkat  
+283: Perzische kat  
+284: Siamese kat  
+285: Egyptische kat  
+286: poema  
+287: lynx  
+288: luipaard  
+289: sneeuwluipaard  
+290: jaguar  
+291: leeuw  
+292: tijger  
+293: jachtluipaard  
+294: bruine beer  
+295: Amerikaanse zwarte beer  
+296: ijsbeer  
+297: lippenbeer  
+298: mangoest  
+299: stokstaartje  
+300: zandloopkever
+301: lieveheersbeestje  
+302: loopkever  
+303: boktor  
+304: bladkever  
+305: mestkever  
+306: neushoornkever  
+307: snuitkever  
+308: vlieg  
+309: bij  
+310: mier  
+311: sprinkhaan  
+312: krekel  
+313: wandelende tak  
+314: kakkerlak  
+315: bidsprinkhaan  
+316: cicade  
+317: bladvlo  
+318: gaasvlieg  
+319: libel  
+320: waterjuffer  
+321: admiraal  
+322: hooibeestje  
+323: monarchvlinder  
+324: koolwitje  
+325: citroenvlinder  
+326: kleine pages  
+327: zeester  
+328: zee-egel  
+329: zeekomkommer  
+330: boskonijn  
+331: haas  
+332: angorakonijn  
+333: hamster  
+334: stekelvarken  
+335: vosseneekhoorn  
+336: marmot  
+337: bever  
+338: cavia  
+339: sorrel (type paard)  
+340: zebra  
+341: varken  
+342: wild zwijn  
+343: wrattenzwijn  
+344: nijlpaard  
+345: os  
+346: waterbuffel  
+347: bizon  
+348: ram  
+349: dikhoornschaap  
+350: steenbok  
+351: hartebeest  
+352: impala  
+353: gazelle  
+354: Arabische kameel  
+355: lama  
+356: wezel  
+357: nerts  
+358: bunzing  
+359: zwartvoetbunzing  
+360: otter  
+361: stinkdier  
+362: das  
+363: gordeldier  
+364: drievingerige luiaard  
+365: orang-oetan  
+366: gorilla  
+367: chimpansee  
+368: gibbon  
+369: siamang  
+370: guenon  
+371: patas  
+372: baviaan  
+373: makaak  
+374: langoer  
+375: colobus  
+376: neusaap  
+377: penseelaapje  
+378: kapucijnaap  
+379: brulaap  
+380: titi-aapje  
+381: spinnenaap  
+382: doodshoofdaapje  
+383: fossa  
+384: indri  
+385: Indiase olifant  
+386: Afrikaanse olifant  
+387: kleine panda  
+388: reuzenpanda  
+389: barracouta  
+390: paling  
+391: coho-zalm  
+392: rotsbaars  
+393: anemoonvis  
+394: steur  
+395: snoek  
+396: koraalduivel  
+397: kogelvis  
+398: abacus  
+399: abaya  
+400: toga  
+401: accordeon  
+402: akoestische gitaar  
+403: vliegdekschip  
+404: verkeersvliegtuig  
+405: luchtschip  
+406: altaar  
+407: ambulance  
+408: amfibievoertuig  
+409: analoge klok  
+410: bijenkorf  
+411: schort  
+412: vuilnisbak  
+413: aanvalsgeweer  
+414: rugzak  
+415: bakkerij  
+416: evenwichtsbalk  
+417: ballon  
+418: balpen  
+419: pleister  
+420: banjo  
+421: leuning  
+422: halter  
+423: kappersstoel  
+424: kapsalon  
+425: schuur  
+426: barometer  
+427: vat  
+428: kruiwagen  
+429: honkbal  
+430: basketbal  
+431: wieg  
+432: fagot  
+433: badmuts  
+434: badhanddoek  
+435: badkuip  
+436: strandwagen  
+437: baken  
+438: beker  
+439: berenmuts  
+440: bierfles  
+441: bierglas  
+442: klokkenstoel  
+443: slabbetje  
+444: tandem  
+445: bikini  
+446: map  
+447: verrekijker  
+448: vogelhuisje  
+449: boothuis  
+450: bobslee  
+451: bolo das  
+452: muts  
+453: boekenkast  
+454: boekwinkel  
+455: flessendop  
+456: boog  
+457: vlinderdas  
+458: koper  
+459: beha  
+460: golfbreker  
+461: borstplaat  
+462: bezem  
+463: emmer  
+464: gesp  
+465: kogelvrij vest  
+466: hogesnelheidstrein  
+467: slagerij  
+468: taxi  
+469: ketel  
+470: kaars  
+471: kanon  
+472: kano  
+473: blikopener  
+474: vest  
+475: autospiegel  
+476: draaimolen  
+477: gereedschapskist  
+478: karton  
+479: autoband  
+480: geldautomaat  
+481: cassette  
+482: cassettespeler  
+483: kasteel  
+484: catamaran  
+485: cd-speler  
+486: cello  
+487: mobiele telefoon  
+488: ketting  
+489: hek van ketting  
+490: maliënkolder  
+491: kettingzaag  
+492: kist  
+493: ladekast  
+494: klok  
+495: vitrinekast  
+496: kerstkous  
+497: kerk  
+498: bioscoop  
+499: hakmes  
+500: klifwoning
+501: mantel  
+502: klomp  
+503: cocktailshaker  
+504: koffiemok  
+505: koffiepot  
+506: spoel  
+507: cijferslot  
+508: computertoetsenbord  
+509: snoepgoed  
+510: containerschip  
+511: cabriolet  
+512: kurkentrekker  
+513: cornet  
+514: cowboylaars  
+515: cowboyhoed  
+516: wieg  
+517: kraan  
+518: valhelm  
+519: krat  
+520: kinderbed  
+521: slowcooker  
+522: croquetbal  
+523: kruk  
+524: borstharnas  
+525: dam  
+526: bureau  
+527: desktopcomputer  
+528: draaischijftelefoon  
+529: luier  
+530: digitale klok  
+531: digitaal horloge  
+532: eettafel  
+533: vaatdoek  
+534: vaatwasser  
+535: schijfrem  
+536: dok  
+537: hondenslee  
+538: koepel  
+539: deurmat  
+540: boorplatform  
+541: trommel  
+542: drumstok  
+543: halter  
+544: Nederlandse oven  
+545: elektrische ventilator  
+546: elektrische gitaar  
+547: elektrische locomotief  
+548: entertainmentcentrum  
+549: envelop  
+550: espressomachine  
+551: gezichtspoeder  
+552: boa van veren  
+553: vijlschijf  
+554: blusboot  
+555: brandweerwagen  
+556: vuurscherm  
+557: vlaggenmast  
+558: fluit  
+559: klapstoel  
+560: footballhelm  
+561: vorkheftruck  
+562: fontein  
+563: vulpen  
+564: hemelbed  
+565: goederenwagon  
+566: Franse hoorn  
+567: koekenpan  
+568: bontjas  
+569: vuilniswagen  
+570: gasmasker  
+571: benzinepomp  
+572: kelk  
+573: kart  
+574: golfbal  
+575: golfkar  
+576: gondel  
+577: gong  
+578: avondjurk  
+579: vleugelpiano  
+580: kas  
+581: rooster  
+582: supermarkt  
+583: guillotine  
+584: haarspeld  
+585: haarspray  
+586: half-track voertuig  
+587: hamer  
+588: wasmand  
+589: handdroger  
+590: handheld computer  
+591: zakdoek  
+592: harde schijf  
+593: mondharmonica  
+594: harp  
+595: oogstmachine  
+596: bijl  
+597: holster  
+598: thuisbioscoop  
+599: honingraat  
+600: haak  
+601: hoepelrok  
+602: rekstok  
+603: paardenwagen  
+604: zandloper  
+605: iPod  
+606: strijkijzer  
+607: jack-o'-lantern  
+608: spijkerbroek  
+609: jeep  
+610: sporttrui  
+611: legpuzzel  
+612: riksja  
+613: joystick  
+614: kimono  
+615: kniebeschermer  
+616: knoop  
+617: laboratoriumjas  
+618: soeplepel  
+619: lampenkap  
+620: laptop  
+621: grasmaaier  
+622: lensdop  
+623: briefopener  
+624: bibliotheek  
+625: reddingsboot  
+626: aansteker  
+627: limousine  
+628: passagiersschip  
+629: lippenstift  
+630: instapschoen  
+631: lotion  
+632: luidspreker  
+633: loep  
+634: zagerij  
+635: magnetisch kompas  
+636: postzak  
+637: brievenbus  
+638: badpak  
+639: maillot  
+640: mangatdeksel  
+641: sambabal  
+642: xylofoon  
+643: masker  
+644: lucifer  
+645: meiboom  
+646: doolhof  
+647: maatbeker  
+648: medicijnkast  
+649: megaliet  
+650: microfoon  
+651: magnetron  
+652: militair uniform  
+653: melkbus  
+654: minibus  
+655: minirok  
+656: minivan  
+657: raket  
+658: want  
+659: mengkom  
+660: stacaravan  
+661: Model T  
+662: modem  
+663: klooster  
+664: monitor  
+665: bromfiets  
+666: mortel  
+667: afstudeerhoed  
+668: moskee  
+669: muskietennet  
+670: motorscooter  
+671: mountainbike  
+672: bergtent  
+673: muis  
+674: muizenval  
+675: verhuiswagen  
+676: muilkorf  
+677: spijker  
+678: nekbrace  
+679: ketting  
+680: speen  
+681: notitieboek  
+682: obelisk  
+683: hobo  
+684: ocarina  
+685: kilometerteller  
+686: oliefilter  
+687: orgel  
+688: oscilloscoop  
+689: overrok  
+690: ossenkar  
+691: zuurstofmasker  
+692: pakje  
+693: peddel  
+694: schoepenrad  
+695: hangslot  
+696: verfkwast  
+697: pyjama  
+698: paleis  
+699: panfluit  
+700: keukenrol
+701: parachute  
+702: brug met gelijke leggers  
+703: parkbank  
+704: parkeermeter  
+705: passagierswagen  
+706: patio  
+707: telefooncel  
+708: voetstuk  
+709: pennenbak  
+710: puntenslijper  
+711: parfum  
+712: petrischaal  
+713: kopieerapparaat  
+714: houweel  
+715: pickelhaube  
+716: houten hek  
+717: pickup  
+718: pier  
+719: spaarvarken  
+720: pillenflesje  
+721: kussen  
+722: pingpongbal  
+723: windmolentje  
+724: piraat  
+725: kan  
+726: vliegtuig  
+727: planetarium  
+728: plastic zak  
+729: bordenrek  
+730: ploeg  
+731: ontstopper  
+732: Polaroidcamera  
+733: paal  
+734: politiebus  
+735: poncho  
+736: pooltafel  
+737: frisdrankfles  
+738: pot  
+739: pottenbakkerswiel  
+740: elektrische boormachine  
+741: gebedskleed  
+742: printer  
+743: gevangenis  
+744: projectiel  
+745: projector  
+746: puck  
+747: boksbal  
+748: handtas  
+749: ganzenveer  
+750: quilt  
+751: racewagen  
+752: racket  
+753: radiator  
+754: radio  
+755: radiotelescoop  
+756: regenton  
+757: camper  
+758: haspel  
+759: spiegelreflexcamera  
+760: koelkast  
+761: afstandsbediening  
+762: restaurant  
+763: revolver  
+764: geweer  
+765: schommelstoel  
+766: draaispit  
+767: gum  
+768: rugbybal  
+769: liniaal  
+770: sportschoen  
+771: kluis  
+772: veiligheidsspeld  
+773: zoutvaatje  
+774: sandaal  
+775: sarong  
+776: saxofoon  
+777: schede  
+778: weegschaal  
+779: schoolbus  
+780: schoener  
+781: scorebord  
+782: scherm  
+783: schroef  
+784: schroevendraaier  
+785: veiligheidsgordel  
+786: naaimachine  
+787: schild  
+788: schoenenwinkel  
+789: shoji  
+790: winkelmandje  
+791: winkelwagentje  
+792: schep  
+793: douchekap  
+794: douchegordijn  
+795: ski  
+796: skimasker  
+797: slaapzak  
+798: rekenliniaal  
+799: schuifdeur  
+800: gleuf
+801: snorkel  
+802: sneeuwscooter  
+803: sneeuwploeg  
+804: zeepdispenser  
+805: voetbal  
+806: sok  
+807: zonnepaneel  
+808: sombrero  
+809: soepkom  
+810: spatiebalk  
+811: elektrische kachel  
+812: spaceshuttle  
+813: spatel  
+814: speedboot  
+815: spinnenweb  
+816: spil  
+817: sportwagen  
+818: schijnwerper  
+819: podium  
+820: stoomlocomotief  
+821: stalen boogbrug  
+822: steelpan  
+823: stethoscoop  
+824: stola  
+825: stenen muur  
+826: stopwatch  
+827: fornuis  
+828: zeef  
+829: tram  
+830: brancard  
+831: slaapbank  
+832: stupa  
+833: onderzeeër  
+834: pak  
+835: zonnewijzer  
+836: zonnebril  
+837: zonnebril  
+838: zonnebrandcrème  
+839: hangbrug  
+840: wattenstaafje  
+841: sweatshirt  
+842: zwembroek  
+843: schommel  
+844: schakelaar  
+845: spuit  
+846: tafellamp  
+847: tank  
+848: cassettespeler  
+849: theepot  
+850: teddybeer  
+851: televisie  
+852: tennisbal  
+853: rietdak  
+854: theatergordijn  
+855: vingerhoed  
+856: dorsmachine  
+857: troon  
+858: pannendak  
+859: broodrooster  
+860: tabakswinkel  
+861: toiletbril  
+862: fakkel  
+863: totempaal  
+864: takelwagen  
+865: speelgoedwinkel  
+866: tractor  
+867: vrachtwagen  
+868: dienblad  
+869: regenjas  
+870: driewieler  
+871: trimaran  
+872: statief  
+873: triomfboog  
+874: trolleybus  
+875: trombone  
+876: badkuip  
+877: draaihek  
+878: typemachinetoetsenbord  
+879: paraplu  
+880: eenwieler  
+881: piano  
+882: stofzuiger  
+883: vaas  
+884: kluis  
+885: fluweel  
+886: automaat  
+887: gewaad  
+888: viaduct  
+889: viool  
+890: volleybal  
+891: wafelijzer  
+892: wandklok  
+893: portemonnee  
+894: kledingkast  
+895: gevechtsvliegtuig  
+896: wastafel  
+897: wasmachine  
+898: waterfles  
+899: waterkan  
+900: watertoren
+901: whiskykan  
+902: fluit  
+903: pruik  
+904: raamhor  
+905: rolgordijn  
+906: Windsor-das  
+907: wijnfles  
+908: vleugel  
+909: wok  
+910: houten lepel  
+911: wol  
+912: heining  
+913: wrak  
+914: jol  
+915: joert  
+916: website  
+917: stripboek  
+918: kruiswoordpuzzel  
+919: verkeersbord  
+920: verkeerslicht  
+921: boekomslag  
+922: menu  
+923: bord  
+924: guacamole  
+925: bouillon  
+926: hotpot  
+927: trifle  
+928: ijs  
+929: waterijsje  
+930: stokbrood  
+931: bagel  
+932: pretzel  
+933: cheeseburger  
+934: hotdog  
+935: aardappelpuree  
+936: witte kool  
+937: broccoli  
+938: bloemkool  
+939: courgette  
+940: spaghettipompoen  
+941: eikelpompoen  
+942: butternutpompoen  
+943: komkommer  
+944: artisjok  
+945: paprika  
+946: kardoen  
+947: paddenstoel  
+948: Granny Smith  
+949: aardbei  
+950: sinaasappel  
+951: citroen  
+952: vijg  
+953: ananas  
+954: banaan  
+955: jackfruit  
+956: zoetzak  
+957: granaatappel  
+958: hooi  
+959: carbonara  
+960: chocoladesaus  
+961: deeg  
+962: gehaktbrood  
+963: pizza  
+964: pastei  
+965: burrito  
+966: rode wijn  
+967: espresso  
+968: kopje  
+969: eierpunch  
+970: alp  
+971: bel  
+972: klif  
+973: koraalrif  
+974: geiser  
+975: oever  
+976: voorgebergte  
+977: zandbank  
+978: kust  
+979: vallei  
+980: vulkaan  
+981: honkbalspeler  
+982: bruidegom  
+983: duiker  
+984: koolzaad  
+985: margriet  
+986: gele vrouwenschoen  
+987: maïs  
+988: eikel  
+989: heup  
+990: paardenkastanje  
+991: koraalzwam  
+992: plaatzwam  
+993: morielje  
+994: stinkzwam  
+995: aardster  
+996: eikhaas  
+997: boleet  
+998: oor  
+999: toiletpapier

@@ -5,7 +5,7 @@ wandb:
 experiment:
     project: "Neobabel-evals"
     name: "neobabel-gen-eval"
-    metadata_file: "GenEval_prompts/evaluation_metadata.jsonl" # Change according to the language
+    metadata_file: "prompts/evaluation_metadata.jsonl" # relative to benchmarking/geneval/ # Change according to the language
     output_dir: "GenEvals/neobabel-gen-eval" # Change output dir 
     
 
@@ -16,7 +16,7 @@ model:
 
     neobabel:
         load_from_neobabel: False 
-        pretrained_model_path: "google/gemma-2-2b-it"
+        pretrained_model_path: "google/gemma-2-2b-it" # TODO: update to the public NeoBabel HF repo once weights are published (currently private at Dheerraa/NeoBabel)
         checkpoint_path: "training-gemma-6-languages-stage2-lumi-bs-6x1152-iter-160000/checkpoint-160000"
         vocab_size: 264203
         llm_vocab_size: 256000

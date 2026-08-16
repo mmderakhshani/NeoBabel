@@ -21,4 +21,10 @@ module load CUDA/12.1.1
 conda activate geneval
 export HF_HOME=/scratch-shared/dvarghese/models/
 
-torchrun --nproc_per_node=4 generate.py config=configs/eval/neobabel_gen_eval_512x512.yaml
+# Submit this script from benchmarking/geneval/. The repo root is put on
+# PYTHONPATH so generate.py can import the top-level `models`/`training` packages.
+cd "${SLURM_SUBMIT_DIR:-$(pwd)}"
+REPO_ROOT="$(cd ../.. && pwd)"
+export PYTHONPATH="$REPO_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+
+torchrun --nproc_per_node=4 generate.py config="$REPO_ROOT/configs/eval/neobabel_gen_eval_512x512.yaml"

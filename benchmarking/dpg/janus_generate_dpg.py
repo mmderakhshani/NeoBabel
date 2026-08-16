@@ -41,15 +41,18 @@ def generate_images_for_batch(
     img_size: int = 384,
     patch_size: int = 16,
 ):
-    # Tokenize and pad prompts
+    # Tokenize and LEFT-pad prompts so every row ends with its image-start tag
+    # and generation starts at the same position for the whole batch.
     input_ids_list = [vl_chat_processor.tokenizer.encode(p) for p in prompts]
     max_len = max(len(ids) for ids in input_ids_list)
     batch_size = len(prompts)
     tokens = torch.full((batch_size*2, max_len), vl_chat_processor.pad_id, dtype=torch.int).cuda()
     for i, ids in enumerate(input_ids_list):
-        tokens[i*2, :len(ids)] = torch.tensor(ids)
-        tokens[i*2+1, :len(ids)] = torch.tensor(ids)
-        tokens[i*2+1, 1:-1] = vl_chat_processor.pad_id  # unconditional
+        ids_t = torch.tensor(ids)
+        tokens[i*2, -len(ids):] = ids_t
+        tokens[i*2+1, -len(ids):] = ids_t
+        # unconditional row: keep BOS and the trailing image-start tag, blank the text
+        tokens[i*2+1, -(len(ids)-1):-1] = vl_chat_processor.pad_id
 
     inputs_embeds = mmgpt.language_model.get_input_embeddings()(tokens)
     generated_tokens = torch.zeros((batch_size, image_token_num_per_image), dtype=torch.int).cuda()
